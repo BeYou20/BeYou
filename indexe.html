@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>الرئيسية - مؤسسة كن أنت</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Tahoma", sans-serif;
+      background-color: #f9f9f9;
+      color: #040430;
+      line-height: 1.6;
+    }
+    header {
+      background: #36a506;
+      color: #fff;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 { margin: 0; font-size: 22px; }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 15px;
+      font-weight: bold;
+    }
+    nav a:hover { text-decoration: underline; }
+
+    /* Hero Section */
+    .hero {
+      background: url("https://g.top4top.io/p_35380elxl1.jpg") no-repeat center/cover;
+      color: #fff;
+      text-align: center;
+      padding: 100px 20px;
+      position: relative;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.4); /* طبقة شفافة */
+    }
+    .hero-text {
+      position: relative;
+      z-index: 2;
+      display: inline-block;
+      background: rgba(4, 4, 48, 0.6);
+      padding: 25px 35px;
+      border-radius: 10px;
+      color: #99f612;
+      font-weight: bold;
+    }
+    .hero-text h2 { margin: 0 0 10px 0; font-size: 32px; }
+    .hero-text p { margin: 0 0 15px 0; font-size: 18px; }
+    .hero-text a {
+      background: #f39c12;
+      color: #fff;
+      padding: 12px 25px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    /* Marquee */
+    .marquee {
+      width: 100%;
+      background: #99f612;
+      color: #040430;
+      overflow: hidden;
+      white-space: nowrap;
+      box-sizing: border-box;
+      padding: 10px 0;
+      font-weight: bold;
+    }
+    .marquee span {
+      display: inline-block;
+      padding-left: 100%;
+      animation: marquee 15s linear infinite;
+    }
+    @keyframes marquee {
+      0%   { transform: translateX(0%); }
+      100% { transform: translateX(-100%); }
+    }
+
+    /* Sections */
+    .section {
+      width: 90%;
+      max-width: 1000px;
+      margin: auto;
+      padding: 40px 20px;
+      background: #fff;
+      margin-top: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+    .section h2 {
+      color: #36a506;
+      margin-bottom: 20px;
+      font-size: 24px;
+      border-bottom: 2px solid #36a506;
+      padding-bottom: 5px;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fill,minmax(220px,1fr));
+      gap: 20px;
+    }
+    .feature-box {
+      background: #ecfdf5;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    /* Latest Courses */
+    .courses-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 20px;
+    }
+    .course-card {
+      background: #f0f9f6;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    .course-card:hover { transform: translateY(-5px); }
+
+    /* Testimonials */
+    .testimonials {
+      display: grid;
+      grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
+      gap: 20px;
+    }
+    .testimonial {
+      background: #fef9f0;
+      padding: 20px;
+      border-radius: 10px;
+      font-style: italic;
+    }
+
+    /* Contact */
+    .contact { text-align: center; }
+    .contact a {
+      display: inline-block;
+      margin: 10px;
+      padding: 12px 20px;
+      background: #36a506;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+    .contact a:hover {
+      background: #99f612;
+      color: #040430;
+    }
+
+    footer {
+      background: #040430;
+      color: #fff;
+      text-align: center;
+      padding: 15px;
+      margin-top: 30px;
+    }
+
+    @media (max-width: 768px) {
+      .hero-text h2 { font-size: 26px; }
+      .hero-text p { font-size: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <h1>مؤسسة كن أنت</h1>
+    <nav>
+      <a href="index.html">الرئيسية</a>
+      <a href="#about">من نحن</a>
+      <a href="courses.html">الدورات</a>
+      <a href="#contact">تواصل معنا</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <div class="hero" data-aos="fade-up">
+    <div class="hero-text">
+      <h2>مرحبًا بكم في مؤسسة كن أنت</h2>
+      <p>نُصنع جيلاً واعيًا، قادرًا على التغيير والبناء</p>
+      <a href="courses.html">📚 استعرض جميع الدورات</a>
+    </div>
+  </div>
+
+  <!-- Marquee -->
+  <div class="marquee">
+    <span>📢 سجل الآن في الدورات التدريبية وابدأ رحلتك نحو التطوير الشخصي والمهني!</span>
+  </div>
+
+  <!-- About -->
+  <div class="section" id="about" data-aos="fade-right">
+    <h2>من نحن</h2>
+    <p>مؤسسة تدريبية رائدة تهدف إلى تقديم برامج نوعية في التعليم، التنمية البشرية، والعلوم الشرعية، لنساهم في بناء جيل مبدع وواعٍ.</p>
+  </div>
+
+  <!-- Features -->
+  <div class="section" data-aos="fade-left">
+    <h2>مميزاتنا</h2>
+    <div class="features">
+      <div class="feature-box">🎓 مدربون خبراء</div>
+      <div class="feature-box">🌍 برامج حضورية وأونلاين</div>
+      <div class="feature-box">📖 تنوع الدورات</div>
+      <div class="feature-box">💡 أساليب تدريب مبتكرة</div>
+    </div>
+  </div>
+
+  <!-- Latest Courses (ديناميكية) -->
+  <div class="section" data-aos="zoom-in">
+    <h2>أحدث الدورات</h2>
+    <div class="courses-grid" id="coursesContainer"></div>
+    <p style="text-align:center; margin-top:20px;">
+      <a href="courses.html" style="background:#99f612; color:#040430;">عرض جميع الدورات</a>
+    </p>
+  </div>
+
+  <!-- Testimonials -->
+  <div class="section" data-aos="fade-up">
+    <h2>آراء طلابنا</h2>
+    <div class="testimonials">
+      <div class="testimonial">"الدورة غيرت حياتي، أصبحت أحفظ القرآن بسهولة." – فهد</div>
+      <div class="testimonial">"تعلمت مهارات جديدة ساعدتني في عملي." – نور</div>
+    </div>
+  </div>
+
+  <!-- Contact -->
+  <div class="section contact" id="contact" data-aos="flip-up">
+    <h2>تواصل معنا</h2>
+    <a href="https://wa.me/967771901320"><i class="fab fa-whatsapp"></i> واتساب</a>
+    <a href="mailto:be.you.t2025@gmail.com"><i class="fas fa-envelope"></i> البريد الإلكتروني</a>
+    <a href="https://t.me/MTYE1"><i class="fab fa-telegram"></i> تيليجرام</a>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 مؤسسة كن أنت للتدريب والتأهيل - جميع الحقوق محفوظة</p>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1200, easing: "ease-in-out", once: true });
+
+    // قائمة الدورات الديناميكية
+    const courses = [
+      "📖 دورة تثبيت القرآن الكريم",
+      "🎓 دبلوم اللغة الإنجليزية",
+      "🚀 دبلوم صناعة العباقرة",
+      "💡 دورة التفكير الإبداعي",
+      "📊 دورة التسويق الرقمي"
+    ];
+
+    const container = document.getElementById("coursesContainer");
+    courses.forEach(course => {
+      const div = document.createElement("div");
+      div.className = "course-card";
+      div.textContent = course;
+      container.appendChild(div);
+    });
+  </script>
+</body>
+</html>
