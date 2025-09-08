@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>قائمة الدورات - مؤسسة كن أنت</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
+
+<style>
+body {
+    font-family: "Tahoma", sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: #040430;
+}
+.container {
+    width: 95%;
+    max-width: 1000px;
+    margin: 20px auto;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    border-radius: 10px;
+}
+h1 {
+    color: #36a506;
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+h2 {
+    color: #99f612;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-size: 22px;
+    border-bottom: 3px solid #36a506;
+    padding-bottom: 5px;
+}
+.course-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+}
+.course-button {
+    display: block;
+    padding: 12px;
+    background-color: #36a506;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 15px;
+    transition: all 0.3s ease;
+}
+.course-button:hover {
+    background-color: #99f612;
+    color: #040430;
+    transform: translateY(-2px);
+}
+.home-button {
+    display: block;
+    margin: 20px auto;
+    padding: 12px;
+    width: fit-content;
+    background-color: #040430;
+    color: #99f612;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+.home-button:hover {
+    background-color: #36a506;
+    color: #fff;
+}
+/* Mobile optimization */
+@media (max-width: 768px) {
+    h1 { font-size: 24px; }
+    h2 { font-size: 20px; }
+    .course-button { font-size: 14px; padding: 10px; }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1 data-aos="fade-down">جميع الدورات التدريبية</h1>
+
+    <a href="index.html" class="home-button" data-aos="fade-up"><i class="fas fa-home"></i> العودة للصفحة الرئيسية</a>
+
+    <h2 data-aos="fade-right">1. الدورات القرآنية</h2>
+    <div class="course-grid">
+    	<a href="Memorizing-quran-fixation.html" class="course-button" data-aos="zoom-in">حفظ القرآن الكريم</a>
+        <a href="course-quran-fixation.html" class="course-button" data-aos="zoom-in">تثبيت القرآن الكريم</a>
+        <a href="course-tajweed.html" class="course-button" data-aos="zoom-in">التجويد والقراءات</a>
+        <a href="course-ijazah.html" class="course-button" data-aos="zoom-in">إجازة القرآن</a>
+        <a href="course-tafsir.html" class="course-button" data-aos="zoom-in">التفسير وعلوم القرآن</a>
+        <a href="course-specific-groups.html" class="course-button" data-aos="zoom-in">دورات لفئات معينة (أطفال – شباب – نساء)</a>
+        <a href="#" class="course-button" data-aos="zoom-in">علوم الحديث الشريف (جديدة)</a>
+        <a href="#" class="course-button" data-aos="zoom-in">علوم التجويد المتقدم (جديدة)</a>
+        <a href="#" class="course-button" data-aos="zoom-in">الحفظ السريع للقرآن الكريم (جديدة)</a>
+    </div>
+
+    <h2 data-aos="fade-right" data-aos-delay="100">2. الدبلومات الأكاديمية والتقنية</h2>
+    <div class="course-grid">
+        <a href="diploma-business.html" class="course-button" data-aos="zoom-in">دبلوم إدارة الأعمال</a>
+        <a href="diploma-accounting.html" class="course-button" data-aos="zoom-in">دبلوم المحاسبة المالية</a>
+        <a href="diploma-graphic.html" class="course-button" data-aos="zoom-in">دبلوم الجرافيك ديزاين</a>
+        <a href="diploma-marketing.html" class="course-button" data-aos="zoom-in">دبلوم التسويق الرقمي</a>
+        <a href="diploma-cybersecurity.html" class="course-button" data-aos="zoom-in">دبلوم الأمن السيبراني</a>
+        <a href="diploma-development.html" class="course-button" data-aos="zoom-in">دبلوم تطوير الأعمال</a>
+        <a href="Diploma-English.html" class="course-button" data-aos="zoom-in">دبلوم اللغة الإنجليزية</a>
+        <a href="#" class="course-button" data-aos="zoom-in">دبلوم الذكاء الاصطناعي وتعلم الآلة (جديدة)</a>
+        <a href="#" class="course-button" data-aos="zoom-in">دبلوم تحليل البيانات والبيانات الكبيرة (جديدة)</a>
+        <a href="#" class="course-button" data-aos="zoom-in">دبلوم التسويق عبر منصات الذكاء الاصطناعي (جديدة)</a>
+        <a href="#" class="course-button" data-aos="zoom-in">دبلوم ريادة الأعمال الرقمية (جديدة)</a>
+        <a href="#" class="course-button" data-aos="zoom-in">دبلوم الأمن السيبراني المتقدم (جديدة)</a>
+    </div>
+    
+    <h2 data-aos="fade-right" data-aos-delay="200">3. التنمية البشرية وتطوير الذات</h2>
+    <div class="course-grid">
+        <a href="course-human-development.html" class="course-button" data-aos="zoom-in">تنمية بشرية</a>
+        <a href="course-personality.html" class="course-button" data-aos="zoom-in">بناء الشخصية</a>
+        <a href="course-team-building.html" class="course-button" data-aos="zoom-in">بناء الفريق</a>
+        <a href="course-become-trainer.html" class="course-button" data-aos="zoom-in">كيف تصبح مدربًا</a>
+        <a href="course-thinking-skills.html" class="course-button" data-aos="zoom-in">مهارات التفكير الأساسية</a>
+        <a href="course-thinking-integration.html" class="course-button" data-aos="zoom-in">دمج مهارات التفكير في المناهج الدراسية</a>
+        <a href="course-talented.html" class="course-button" data-aos="zoom-in">اكتشاف ورعاية الموهوبين</a>
+        <a href="course-communication.html" class="course-button" data-aos="zoom-in">مهارات الاتصال والتواصل</a>
+        <a href="course-training-methods.html" class="course-button" data-aos="zoom-in">أساليب التدريب</a>
+        <a href="course-management-art.html" class="course-button" data-aos="zoom-in">فن الإدارة</a>
+        <a href="#" class="course-button" data-aos="zoom-in">الذكاء العاطفي وإدارة المشاعر (جديدة)</a>
+        <a href="#" class="course-button" data-aos="zoom-in">القيادة والإدارة الحديثة (جديدة)</a>
+        <a href="#" class="course-button" data-aos="zoom-in">مهارات التفاوض والإقناع (جديدة)</a>
+        <a href="#" class="course-button" data-aos="zoom-in">إدارة الوقت وزيادة الإنتاجية (جديدة)</a>
+        <a href="#" class="course-button" data-aos="zoom-in">التفكير الإبداعي وحل المشكلات (جديدة)</a>
+    </div>
+
+    <h2 data-aos="fade-right" data-aos-delay="300">4. التدريب التقني والبرمجي</h2>
+    <div class="course-grid">
+        <a href="course-programming.html" class="course-button" data-aos="zoom-in">أساسيات البرمجة</a>
+        <a href="course-computer.html" class="course-button" data-aos="zoom-in">دورات الحاسوب (وورد – إكسل – بوربوينت – أكسس)</a>
+        <a href="#" class="course-button" data-aos="zoom-in">الرخصة الدولية لقيادة الحاسوب</a>
+        <a href="#" class="course-button" data-aos="zoom-in">البرمجة المتقدمة (بايثون – جافا – C++) (جديدة)</a>
+        <a href="#" class="course-button" data-aos="zoom-in">تطوير تطبيقات الموبايل (Android & iOS) (جديدة)</a>
+        <a href="#" class="course-button" data-aos="zoom-in">تطوير الألعاب (Unity – Unreal Engine) (جديدة)</a>
+        <a href="#" class="course-button" data-aos="zoom-in">تصميم واجهات وتجربة المستخدم (UX/UI) (جديدة)</a>
+        <a href="#" class="course-button" data-aos="zoom-in">الأمن السيبراني العملي والاختراق الأخلاقي (جديدة)</a>
+    </div>
+
+    <h2 data-aos="fade-right" data-aos-delay="400">5. الدورات الإبداعية والفنية</h2>
+    <div class="course-grid">
+        <a href="course-drawing.html" class="course-button" data-aos="zoom-in">الرسم (ألوان مائية – رصاص – زيتي)</a>
+        <a href="course-photography.html" class="course-button" data-aos="zoom-in">التصوير (بالموبايل – بالكاميرا)</a>
+        <a href="course-editing.html" class="course-button" data-aos="zoom-in">المونتاج (الكمبيوتر + الموبايل)</a>
+        <a href="course-graphics.html" class="course-button" data-aos="zoom-in">الجرافيكس (فوتوشوب – انديزاين – تصميم الثيمات – التصميم بالجوال)</a>
+        <a href="course-candles.html" class="course-button" data-aos="zoom-in">صناعة الشموع</a>
+        <a href="course-incense.html" class="course-button" data-aos="zoom-in">صناعة البخور</a>
+        <a href="course-sewing.html" class="course-button" data-aos="zoom-in">الخياطة والتصميم</a>
+        <a href="#" class="course-button" data-aos="zoom-in">فن صناعة الريزن</a>
+        <a href="#" class="course-button" data-aos="zoom-in">صناعة المحتوى الرقمي (اليوتيوب – تيك توك – البودكاست) (جديدة)</a>
+        <a href="#" class="course-button" data-aos="zoom-in">التصميم عبر الذكاء الاصطناعي (جديدة)</a>
+        <a href="#" class="course-button" data-aos="zoom-in">فنون الكتابة الإبداعية الحديثة (جديدة)</a>
+        <a href="#" class="course-button" data-aos="zoom-in">تصوير ومونتاج الفيديو المتقدم (جديدة)</a>
+    </div>
+
+    <h2 data-aos="fade-right" data-aos-delay="500">6. الدورات المتخصصة القصيرة</h2>
+    <div class="course-grid">
+        <a href="course-social-media.html" class="course-button" data-aos="zoom-in">استراتيجية التسويق عبر وسائل التواصل الاجتماعي</a>
+        <a href="course-digital-ads.html" class="course-button" data-aos="zoom-in">تصميم الإعلانات الرقمية</a>
+        <a href="course-pharmacy.html" class="course-button" data-aos="zoom-in">الصيدلية الرقمية</a>
+        <a href="course-customer-service.html" class="course-button" data-aos="zoom-in">خدمة العملاء وإدارة المبيعات</a>
+        <a href="course-etiquette.html" class="course-button" data-aos="zoom-in">التدريب على الإتيكيت (الأنثى السعيدة)</a>
+        <a href="course-first-aid.html" class="course-button" data-aos="zoom-in">دورة الإسعافات الأولية</a>
+        <a href="course-cooking.html" class="course-button" data-aos="zoom-in">دورة الطبخ</a>
+        <a href="course-online-earning.html" class="course-button" data-aos="zoom-in">دورة الربح من الإنترنت</a>
+        <a href="course-leadership.html" class="course-button" data-aos="zoom-in">التدريب القيادي وتطوير الذات</a>
+    </div>
+
+    <h2 data-aos="fade-right" data-aos-delay="600">7. الدورات الخاصة بالتعليم والتدريب</h2>
+    <div class="course-grid">
+        <a href="course-reading.html" class="course-button" data-aos="zoom-in">نهج القراءة</a>
+        <a href="course-active-learning.html" class="course-button" data-aos="zoom-in">التعلم النشط</a>
+        <a href="course-planning.html" class="course-button" data-aos="zoom-in">التخطيط الفصلي واليومي</a>
+        <a href="course-assessment.html" class="course-button" data-aos="zoom-in">التقويم الصفي</a>
+        <a href="course-specifications.html" class="course-button" data-aos="zoom-in">جدول المواصفات</a>
+        <a href="course-questions.html" class="course-button" data-aos="zoom-in">أسلوب بناء الأسئلة الاختبارية</a>
+        <a href="course-class-management.html" class="course-button" data-aos="zoom-in">إدارة الصف</a>
+        <a href="course-problem-solving.html" class="course-button" data-aos="zoom-in">حل المشكلات الصفية</a>
+        <a href="course-supervision.html" class="course-button" data-aos="zoom-in">أساليب الإشراف التربوي</a>
+        <a href="course-math.html" class="course-button" data-aos="zoom-in">مهارات تدريس الرياضيات</a>
+        <a href="course-math-strategies.html" class="course-button" data-aos="zoom-in">استراتيجيات تعلم الرياضيات</a>
+        <a href="course-primary.html" class="course-button" data-aos="zoom-in">أساليب تدريس العلوم واللغة العربية للصفوف الأولية</a>
+        <a href="#" class="course-button" data-aos="zoom-in">أساليب التعليم الرقمي والتعليم عن بعد (جديدة)</a>
+        <a href="#" class="course-button" data-aos="zoom-in">تصميم المناهج والبرامج التعليمية (جديدة)</a>
+        <a href="#" class="course-button" data-aos="zoom-in">التعليم التفاعلي وGamification (جديدة)</a>
+        <a href="#" class="course-button" data-aos="zoom-in">التقييم والتقويم الإلكتروني للطلاب (جديدة)</a>
+    </div>
+
+    <h2 data-aos="fade-right" data-aos-delay="700">8. دورات المجتمع المدني والإدارة</h2>
+    <div class="course-grid">
+        <a href="course-strategic-planning.html" class="course-button" data-aos="zoom-in">التخطيط الاستراتيجي لمنظمات المجتمع المدني</a>
+        <a href="course-swot.html" class="course-button" data-aos="zoom-in">رباعية سوات في التخطيط</a>
+        <a href="course-networking.html" class="course-button" data-aos="zoom-in">أساليب التشبيك بين منظمات المجتمع المدني والسلطة المحلية</a>
+        <a href="course-roles.html" class="course-button" data-aos="zoom-in">أدوار منظمات المجتمع المدني في التنمية ومكافحة الفساد</a>
+        <a href="course-hendra.html" class="course-button" data-aos="zoom-in">الهندرة</a>
+        <a href="course-feasibility.html" class="course-button" data-aos="zoom-in">دراسة جدوى المشاريع (التسويق – الإدارة – المعرفة المالية)</a>
+        <a href="course-correspondence.html" class="course-button" data-aos="zoom-in">المراسلات التجارية (بالعربية والإنجليزية)</a>
+        <a href="#" class="course-button" data-aos="zoom-in">إدارة الحملات الاجتماعية والمؤسسات غير الربحية (جديدة)</a>
+        <a href="#" class="course-button" data-aos="zoom-in">القيادة المجتمعية والتأثير الاجتماعي (جديدة)</a>
+        <a href="#" class="course-button" data-aos="zoom-in">التخطيط الاستراتيجي باستخدام أدوات حديثة (جديدة)</a>
+        <a href="#" class="course-button" data-aos="zoom-in">الحوكمة ومكافحة الفساد (جديدة)</a>
+    </div>
+
+    <h2 data-aos="fade-right" data-aos-delay="800">9. الدورات المالية وريادة الأعمال (جديدة بالكامل)</h2>
+    <div class="course-grid">
+        <a href="#" class="course-button" data-aos="zoom-in">إدارة المشاريع الاحترافية (PMP)</a>
+        <a href="#" class="course-button" data-aos="zoom-in">المحاسبة الإدارية المتقدمة</a>
+        <a href="#" class="course-button" data-aos="zoom-in">ريادة الأعمال والابتكار</a>
+        <a href="#" class="course-button" data-aos="zoom-in">التداول والاستثمار الرقمي</a>
+        <a href="#" class="course-button" data-aos="zoom-in">دراسة جدوى المشاريع الناشئة</a>
+    </div>
+
+    <h2 data-aos="fade-right" data-aos-delay="900">ملاحظة:</h2>
+    <p style="text-align: center; color: #555;" data-aos="fade-up" data-aos-delay="950">
+        للاطلاع على تفاصيل كل دورة، يرجى الضغط على الزر الخاص بها.
+    </p>
+</div>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({
+        duration: 1200,
+        easing: "ease-in-out",
+        once: true,
+        mirror: false
+    });
+</script>
+</body>
+</html>

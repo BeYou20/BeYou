@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>دبلوم صناعة العباقرة - مؤسسة كن أنت</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: "Almarai", sans-serif; background-color: #f9f9f9; color: #040430; line-height: 1.6; }
+@import url('https://fonts.googleapis.com/css2?family=Almarai:wght@400;700&display=swap');
+header { background: #36a506; color: #fff; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+header h1 { font-size: 22px; margin-bottom: 5px; }
+nav a { color: #fff; text-decoration: none; margin-left: 15px; font-weight: bold; }
+nav a:hover { text-decoration: underline; }
+.hero { background: url("https://g.top4top.io/p_35380elxl1.jpg") no-repeat center center/cover; color: #fff; text-align: center; padding: 120px 20px 80px 20px; position: relative; }
+.hero::after { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.4); z-index:1; }
+.hero-text { position: relative; z-index: 2; display: inline-block; background: rgba(4, 4, 48, 0.6); padding: 25px 30px; border-radius: 10px; color: #99f612; font-weight: bold; max-width: 90%; }
+.hero-text h2 { font-size: 32px; margin-bottom: 10px; }
+.hero-text p { font-size: 18px; margin-bottom: 0; }
+.marquee { width: 100%; background: #99f612; color: #040430; overflow: hidden; white-space: nowrap; padding: 10px 0; font-weight: bold; }
+.marquee span { display: inline-block; padding-left: 100%; animation: marquee 15s linear infinite; }
+@keyframes marquee { 0% { transform: translateX(0%); } 100% { transform: translateX(-100%); } }
+.container { width: 90%; max-width: 900px; margin: 20px auto; background: #fff; padding: 20px 30px; border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.1); }
+h1 { text-align: center; margin-bottom: 20px; font-size: 28px; color: #36a506; }
+h2 { color: #36a506; margin-top: 25px; margin-bottom: 10px; border-bottom: 2px solid #36a506; padding-bottom: 5px; }
+ul { list-style: none; padding-left: 0; }
+li { margin-bottom: 15px; display: flex; align-items: flex-start; }
+li i { font-size: 20px; color: #36a506; margin-left: 10px; flex-shrink: 0; }
+.btn { display: inline-block; margin: 10px 5px; padding: 12px 25px; background: #36a506; color: #fff; text-decoration: none; border-radius: 8px; font-weight: bold; transition: 0.3s; }
+.btn:hover { background: #99f612; color: #040430; }
+.btn-register { background: #f39c12; }
+.btn-register:hover { background: #e67e22; }
+/* Slider */
+.slider-container { overflow: hidden; width: 100%; max-width: 900px; margin: 20px auto; }
+.slider-track { display: flex; transition: transform 0.5s ease-in-out; gap: 15px; }
+.testimonial { min-width: 100%; padding: 20px; background: #fef9f0; border-radius: 10px; box-shadow: 0 0 8px rgba(0,0,0,0.1); font-style: italic; }
+.slider-dots { text-align: center; margin-top: 15px; }
+.dot { display: inline-block; width: 10px; height: 10px; margin: 0 5px; background-color: #ccc; border-radius: 50%; cursor: pointer; transition: background-color 0.3s; }
+.dot.active { background-color: #36a506; }
+/* Certificate */
+.certificate-section { text-align: center; margin-top: 30px; }
+.certificate-section img { max-width: 100%; height: auto; border: 5px solid #36a506; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.2); }
+/* FAQ */
+.faq-item { margin-bottom: 15px; }
+.faq-question { background: #f0f0f0; padding: 15px; border-radius: 8px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+.faq-question:hover { background: #e0e0e0; }
+.faq-answer { background: #fafafa; padding: 15px; border-radius: 8px; margin-top: 5px; display: none; }
+.faq-answer.show { display: block; }
+.faq-question i { transition: transform 0.3s ease; }
+.faq-question.active i { transform: rotate(180deg); }
+/* Sticky Button */
+.sticky-register-btn { position: fixed; bottom: 20px; right: 20px; z-index: 1000; display: none; }
+/* Footer */
+footer { background: rgba(4, 4, 48, 0.9); color: #fff; padding: 30px 20px; text-align: center; }
+footer a { color: #99f612; text-decoration: none; font-weight: bold; }
+footer a:hover { text-decoration: underline; }
+@media (max-width: 768px) {
+.hero { padding: 100px 15px 60px 15px; }
+.hero-text h2 { font-size: 26px; }
+.hero-text p { font-size: 16px; }
+.container { padding: 15px; }
+}
+</style>
+</head>
+<body>
+<header>
+  <h1>مؤسسة كن أنت</h1>
+  <nav>
+    <a href="#">الرئيسية</a>
+    <a href="#">الدورات</a>
+    <a href="#contact">تواصل معنا</a>
+  </nav>
+</header>
+<div class="hero" data-aos="fade-up">
+  <div class="hero-text">
+    <h2>دبلوم صناعة العباقرة</h2>
+    <p>اصنع عبقريتك وكن أنت المعجزة القادمة</p>
+    <a href="https://t.me/+HcJbWshhcmA0ZDA0" class="btn btn-register" target="_blank" style="margin-top: 20px;"><i class="fab fa-telegram-plane"></i> انضم الآن عبر تيليجرام</a>
+  </div>
+</div>
+<div class="marquee"><span>📢 فرصة ذهبية للجميع! انضم الآن إلى دبلوم صناعة العباقرة عبر الواتساب.</span></div>
+<div class="container" data-aos="fade-up">
+<h2>لماذا هذا الدبلوم؟</h2>
+<ul data-aos="fade-right">
+<li><i class="fas fa-brain"></i> تحسين الحفظ وتقوية الذاكرة.</li>
+<li><i class="fas fa-book-open"></i> تعلم أسرار العباقرة وتقنيات التميز.</li>
+<li><i class="fas fa-bolt"></i> مهارات الحساب الذهني والتعلم السريع.</li>
+<li><i class="fas fa-users"></i> متابعة مباشرة ودعم من المدربين.</li>
+</ul>
+<h2>محاور الدبلوم</h2>
+<ul data-aos="fade-left">
+<li><i class="fas fa-brain"></i> دورة إنعاش العقل</li>
+<li><i class="fas fa-memory"></i> دورة الذاكرة الذكية</li>
+<li><i class="fas fa-calculator"></i> دورة الحساب الذهني</li>
+<li><i class="fas fa-book-reader"></i> دورة القراءة السريعة</li>
+<li><i class="fas fa-graduation-cap"></i> دورة الحفظ والفهم السريع</li>
+<li><i class="fas fa-school"></i> دورة التعلم السريع</li>
+<li><i class="fas fa-map-marked-alt"></i> دورة الخرائط الذهنية</li>
+<li><i class="fas fa-edit"></i> دورة المذاكرة الفعالة</li>
+<li><i class="fas fa-trophy"></i> دورة التفوق الدراسي</li>
+<li><i class="fas fa-university"></i> دورة التمكين الجامعي</li>
+<li><i class="fas fa-lightbulb"></i> دورة أسرار النوابغ</li>
+<li><i class="fas fa-key"></i> دورة مفاتيح النجاح</li>
+<li><i class="fas fa-lock-open"></i> دورة خفايا الأذكياء</li>
+</ul>
+<h2>مميزات الدبلوم</h2>
+<ul data-aos="fade-right">
+<li><i class="fas fa-check"></i> دراسة عبر الواتساب</li>
+<li><i class="fas fa-check"></i> شهادة معتمدة</li>
+<li><i class="fas fa-check"></i> محتوى تدريبي ثري وعملي</li>
+<li><i class="fas fa-check"></i> مدة الدبلوم شهر كامل</li>
+<li><i class="fas fa-check"></i> المدرب: بشير السفياني</li>
+<li><i class="fas fa-check"></i> تمارين وتطبيقات فريدة</li>
+<li><i class="fas fa-check"></i> تقنيات تنشيط العقل والذاكرة</li>
+<li><i class="fas fa-check"></i> نماذج عملية وفعّالة</li>
+</ul>
+<h2>إنجازك بعد الدبلوم</h2>
+<div class="certificate-section" data-aos="zoom-in">
+  <img src="https://i.ibb.co/L519VjL/certificate.png" alt="نموذج شهادة الدبلوم">
+  <p style="margin-top:15px; font-weight: bold; color: #36a506;">شهادة معتمدة لإتمام الدبلوم</p>
+</div>
+<h2>آراء المتدربين</h2>
+<div class="slider-container" data-aos="fade-up">
+  <div class="slider-track">
+    <div class="testimonial">"الدبلوم غير حياتي، أصبحت أكثر تركيزاً." – علي</div>
+    <div class="testimonial">"تمكنت من حفظ القرآن بسرعة لم أتخيلها." – فاطمة</div>
+    <div class="testimonial">"التمارين العملية جعلت التعلم ممتعاً." – خالد</div>
+    <div class="testimonial">"تعلمت أسرار العباقرة في وقت قصير." – سلمى</div>
+    <div class="testimonial">"الدعم المباشر من المدرب كان مميزاً." – نادر</div>
+    <div class="testimonial">"الذاكرة تحسنت كثيراً بعد الدبلوم." – هالة</div>
+    <div class="testimonial">"أنصح الجميع بهذه الدورة بلا تردد." – يوسف</div>
+    <div class="testimonial">"طرق المذاكرة الفعالة ساعدتني على التفوق." – منى</div>
+    <div class="testimonial">"تعلمت الحساب الذهني بشكل ممتع." – عبد الرحمن</div>
+    <div class="testimonial">"اكتشفت قدراتي الخفية وطورتها." – ليلى</div>
+  </div>
+  <div class="slider-dots"></div>
+</div>
+<h2>مسابقة للجميع</h2>
+<p>🫵 انشر هذا الإعلان في 10 مجموعات واتساب أو على صفحتك في الفيسبوك، وأرسل لقطة الشاشة إلى <a href="https://t.me/E2025Ebot">بوت تيلجرام</a> لتحصل على دورة مجانية وعشرة كتب إلكترونية متميزة.</p>
+<h2>الأسئلة الشائعة</h2>
+<div class="faq-container" data-aos="fade-up">
+  <div class="faq-item">
+    <div class="faq-question">ما هي طريقة الدراسة؟ <i class="fas fa-chevron-down"></i></div>
+    <div class="faq-answer">الدراسة تتم عن بُعد عبر تطبيق واتساب، حيث يتم إرسال المحتوى التدريبي والتمارين بشكل يومي.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-question">هل الشهادة معتمدة؟ <i class="fas fa-chevron-down"></i></div>
+    <div class="faq-answer">نعم، الشهادة معتمدة من مؤسسة كن أنت للتدريب والتأهيل.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-question">ما هي مدة الدبلوم؟ <i class="fas fa-chevron-down"></i></div>
+    <div class="faq-answer">مدة الدبلوم شهر كامل، ويتضمن 13 دورة متكاملة.</div>
+  </div>
+</div>
+<div style="text-align:center; margin-top:20px;">
+<a href="https://t.me/+HcJbWshhcmA0ZDA0" class="btn btn-register" target="_blank">انضم الآن عبر تيليجرام</a>
+<a href="https://t.me/E2025Ebot" class="btn"><i class="fab fa-telegram"></i> تواصل معنا</a>
+</div>
+<footer>
+<p>© 2025 مؤسسة كن أنت للتدريب والتأهيل - جميع الحقوق محفوظة</p>
+<p>للتواصل: <a href="mailto:be.you.t2025@gmail.com">be.you.t2025@gmail.com</a> | <a href="https://wa.me/967771901320">واتساب</a></p>
+</footer>
+<a href="https://t.me/+HcJbWshhcmA0ZDA0" class="btn btn-register sticky-register-btn" target="_blank">سجل الآن</a>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+AOS.init({ duration: 1200, easing: "ease-in-out", once: true });
+const faqItems = document.querySelectorAll('.faq-item');
+faqItems.forEach(item => {
+  item.querySelector('.faq-question').addEventListener('click', () => {
+    const answer = item.querySelector('.faq-answer');
+    const question = item.querySelector('.faq-question');
+    const isActive = question.classList.toggle('active');
+    document.querySelectorAll('.faq-question.active').forEach(otherQuestion => {
+      if (otherQuestion !== question) {
+        otherQuestion.classList.remove('active');
+        otherQuestion.nextElementSibling.classList.remove('show');
+      }
+    });
+    answer.classList.toggle('show');
+  });
+});
+const stickyBtn = document.querySelector('.sticky-register-btn');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 500) {
+    stickyBtn.style.display = 'block';
+  } else {
+    stickyBtn.style.display = 'none';
+  }
+});
+const sliderTrack = document.querySelector('.slider-track');
+const testimonials = document.querySelectorAll('.testimonial');
+const dotsContainer = document.querySelector('.slider-dots');
+let currentSlide = 0;
+let slideInterval;
+const slideDuration = 8000;
+// إنشاء النقاط
+testimonials.forEach((_, index) => {
+  const dot = document.createElement('span');
+  dot.classList.add('dot');
+  if (index === 0) dot.classList.add('active');
+  dot.addEventListener('click', () => goToSlide(index));
+  dotsContainer.appendChild(dot);
+});
+const dots = document.querySelectorAll('.dot');
+// الذهاب لشريحة معينة
+function goToSlide(index) {
+  currentSlide = index;
+  // استخدام قيمة موجبة للتوافق مع RTL
+  const offset = currentSlide * testimonials[0].offsetWidth;
+  sliderTrack.style.transform = `translateX(${offset}px)`;
+  updateDots();
+}
+// تحديث النقاط
+function updateDots() {
+  dots.forEach((dot, index) => dot.classList.toggle('active', index === currentSlide));
+}
+// الانتقال للشريحة التالية
+function nextSlide() {
+  currentSlide = (currentSlide + 1) % testimonials.length;
+  goToSlide(currentSlide);
+}
+// بدء السلايدر
+function startSlider() {
+  slideInterval = setInterval(nextSlide, slideDuration);
+}
+// إيقاف عند مرور الفأرة
+function pauseSlider() {
+  clearInterval(slideInterval);
+}
+startSlider();
+sliderTrack.addEventListener('mouseenter', pauseSlider);
+sliderTrack.addEventListener('mouseleave', startSlider);
+</script>
+</body>
+</html>
