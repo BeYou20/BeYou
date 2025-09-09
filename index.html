@@ -4,24 +4,38 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>الرئيسية - مؤسسة كن أنت</title>
+  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
+  
   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
+  
   <style>
+    /* -------------------- إعدادات CSS العامة -------------------- */
+    
+    /* تعريف الألوان الأساسية في متغيرات لتسهيل التعديل */
     :root {
-      --primary-color: #0d3b14;
-      --secondary-color: #e5a72d;
-      --accent-color: #f7f3e9;
-      --text-color: #f4f4f4;
+      --primary-color: #0d3b14; /* اللون الأساسي: أخضر داكن */
+      --secondary-color: #e5a72d; /* اللون الثانوي: ذهبي/أصفر */
+      --accent-color: #f7f3e9; /* لون الخلفية: بيج فاتح */
+      --text-color: #f4f4f4; /* لون النصوص: أبيض */
     }
+    
+    /* تنسيق الجسم الأساسي للصفحة */
     body {
       margin: 0;
       font-family: 'Tajawal', sans-serif;
       background-color: var(--accent-color);
       color: var(--primary-color);
       line-height: 1.7;
-      overflow-x: hidden;
+      overflow-x: hidden; /* إخفاء أي محتوى يخرج عن عرض الصفحة */
     }
+    
+    /* -------------------- تنسيق الأقسام -------------------- */
+    
+    /* تنسيق الهيدر (العنوان وقائمة التنقل) */
     header {
       background: var(--primary-color);
       color: var(--text-color);
@@ -39,6 +53,8 @@
       transition: color 0.3s ease;
     }
     nav a:hover { color: var(--secondary-color); }
+    
+    /* تنسيق قسم "البطل" (Hero Section) في أعلى الصفحة) */
     .hero {
       background: url("https://g.top4top.io/p_35380elxl1.jpg") no-repeat center/cover;
       color: #fff;
@@ -51,7 +67,7 @@
       position: absolute;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      background: rgba(0,0,0,0.6);
+      background: rgba(0,0,0,0.6); /* طبقة شفافة فوق الصورة */
     }
     .hero-text {
       position: relative;
@@ -82,9 +98,11 @@
       transition: transform 0.3s ease;
     }
     .hero-text a:hover { transform: scale(1.05); }
+    
+    /* تنسيق شريط الأخبار المتحرك */
     .marquee {
       width: 100%;
-      background: var(--secondary-color);
+      background: gold;
       color: var(--primary-color);
       overflow: hidden;
       white-space: nowrap;
@@ -95,25 +113,63 @@
     .marquee span {
       display: inline-block;
       padding-left: 100%;
-      animation: marquee 15s linear infinite;
+      animation: marquee 70s linear infinite;
     }
-    @keyframes marquee {
-      0%   { transform: translateX(0%); }
-      100% { transform: translateX(-100%); }
+    
+    
+    .ticker-wrap {
+  width: 100%;
+  overflow: hidden;
+  background: var(--primary-color);
+  color: var(--text-color);
+  padding: 10px 0;
+  font-weight: bold;
+}
+
+.ticker {
+  display: inline-block;
+  white-space: nowrap;
+  animation: marquee 30s linear infinite;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%); /* يبدأ عند حافة اليسار */
+  }
+  100% {
+    transform: translateX(100%); /* يتحرك للخارج جهة اليمين */
+  }
+}
+
+      
+      
     }
+    
+    /* تنسيق الأقسام الرئيسية (من نحن، مميزاتنا، الدورات، إلخ) */
     .section {
       width: 90%;
       max-width: 1100px;
-      margin: 30px auto;
-      padding: 50px 20px;
+      margin: 30px auto; 
+      /* حل جذري: تم تقليل المسافة العلوية والسفلية للقسم نفسه لتقليل الفراغ */
+      padding: 30px 20px; 
       background: #fff;
       border-radius: 15px;
       box-shadow: 0 5px 25px rgba(0,0,0,0.1);
       box-sizing: border-box;
     }
+    
+    /* التحكم في ارتفاع قسم الدورات */
+    #courses.section {
+      /* تم تغيير الارتفاع إلى 350 بكسل كما طلبت */
+      height: 350px; 
+      overflow: hidden; /* يمنع ظهور أي محتوى خارج الارتفاع المحدد */
+    }
+
+    /* تنسيق عناوين الأقسام (مثال: من نحن، مميزاتنا) */
     .section h2 {
       color: var(--primary-color);
-      margin-bottom: 25px;
+      /* حل جذري: تم تقليل المسافة أسفل العنوان لرفع السلايدر للأعلى */
+      margin-bottom: 10px; 
       font-size: 28px;
       text-align: center;
       position: relative;
@@ -127,6 +183,8 @@
       margin: 10px auto 0;
       border-radius: 2px;
     }
+    
+    /* تنسيق قسم المميزات */
     .features {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -149,43 +207,86 @@
       color: var(--secondary-color);
       margin-bottom: 15px;
     }
-    /* Courses Slider */
-    .courses-slider-container {
-      position: relative;
+    
+    /* -------------------- تنسيق Swiper (سلايدر الدورات) -------------------- */
+    
+    .swiper {
       width: 100%;
-      overflow: hidden;
-      margin-bottom: 20px;
+      /* حل جذري: تم تقليل المسافة أسفل السلايدر لتقليل الفراغ */
+      padding-bottom: 5px;
+      box-sizing: border-box;
+      /* تم إزالة الارتفاع التلقائي لضبط السلايدر داخل ارتفاع القسم المحدد */
+      height: 150px; 
     }
-    .courses-slider {
-      display: flex;
-      transition: transform 0.5s ease-in-out;
+
+    /* التحكم في المسافة العمودية للشرائح داخل السلايدر */
+    .swiper-wrapper {
+      /* حل جذري: تم إزالة padding-top تمامًا لرفع الشرائح للأعلى مباشرة تحت العنوان */
+      padding-top: 0; 
+      align-items: center;
     }
-    .course-card {
-      flex: 0 0 280px; /* Fixed width */
-      background: var(--accent-color);
-      padding: 25px;
-      border-radius: 12px;
+
+    /* التحكم في الشرائح نفسها */
+    .swiper-slide {
       text-align: center;
+      background: var(--accent-color);
+      /* حل جذري: تم تحديد ارتفاع ثابت لكل شريحة لضمان اتساق الحجم */
+      height: 70px; 
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      /* تم تعديل الـ padding العلوي والسفلي للتحكم في ارتفاع الشريحة بشكل أفضل */
+      padding: 10px 25px; 
+      border-radius: 12px;
       box-shadow: 0 2px 10px rgba(0,0,0,0.05);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-      margin-left: 12.5px;
-      margin-right: 12.5px;
     }
-    .course-card:hover {
+    .swiper-slide:hover {
       transform: translateY(-8px);
       box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     }
-    .course-card .course-title {
+    .swiper-slide .course-title {
       font-weight: bold;
       font-size: 18px;
       color: var(--primary-color);
     }
-    /* Testimonials Slider */
+    
+    /* تنسيق أزرار التنقل (الأسهم) */
+    .swiper-button-next, .swiper-button-prev {
+      color: var(--primary-color) !important;
+      background: var(--secondary-color);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      transition: background-color 0.3s;
+    }
+    .swiper-button-next::after, .swiper-button-prev::after {
+      font-size: 16px !important;
+      font-weight: bold;
+    }
+    .swiper-button-next:hover, .swiper-button-prev:hover {
+      background: #f9c257;
+    }
+    
+    /* تنسيق نقاط الترقيم (Pagination) */
+    .swiper-pagination-bullet {
+      background: var(--primary-color);
+      width: 10px;
+      height: 10px;
+      opacity: 0.7;
+    }
+    .swiper-pagination-bullet-active {
+      opacity: 1;
+      background: var(--secondary-color);
+    }
+    
+    /* -------------------- تنسيق سلايدر آراء الطلاب -------------------- */
+    
     .slider-container {
       position: relative;
       width: 100%;
       max-width: 600px;
-      margin: 0 auto;
+      margin: 0 auto; 
       overflow: hidden;
       padding-bottom: 40px;
     }
@@ -199,7 +300,7 @@
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
     .testimonial.active {
-      display: block;
+      display: block; 
     }
     .testimonial::before {
       content: '\201C';
@@ -217,9 +318,11 @@
       bottom: -15px;
       left: 20px;
     }
+    
+    /* تنسيق نقاط التنقل (dots) */
     .slider-dots {
       text-align: center;
-      margin-top: 20px;
+      margin-top: 20px; 
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
@@ -243,6 +346,8 @@
     .dot.active {
       background-color: var(--primary-color);
     }
+    
+    /* تنسيق قسم التواصل */
     .contact { 
       text-align: center; 
     }
@@ -268,6 +373,8 @@
       margin-left: 10px;
       font-size: 20px;
     }
+    
+    /* تنسيق الفوتر (نهاية الصفحة) */
     footer {
       background: var(--primary-color);
       color: var(--text-color);
@@ -276,6 +383,9 @@
       margin-top: 40px;
       font-size: 14px;
     }
+    
+    /* -------------------- تنسيقات الشاشات الصغيرة (الجوال) -------------------- */
+    
     @media (max-width: 768px) {
       header { flex-direction: column; text-align: center; padding: 10px 15px; }
       header h1 { font-size: 20px; margin-bottom: 10px; }
@@ -287,19 +397,15 @@
       .hero-text p { font-size: clamp(14px, 4vw, 16px); }
       .hero-text a { padding: 10px 20px; font-size: 15px; }
       .marquee { padding: 8px 0; font-size: 14px; }
+      /* حل جذري: تم تقليل المسافات على الجوال أيضًا */
       .section {
         width: 95%;
-        padding: 30px 15px;
+        padding: 20px 15px;
         margin: 20px auto;
       }
       .section h2 { font-size: 24px; }
       .features { grid-template-columns: 1fr; }
       .feature-card { padding: 25px; }
-      .course-card {
-        flex: 0 0 100%;
-        margin-left: 0;
-        margin-right: 0;
-      }
       .testimonial { padding: 25px; }
       .testimonial::before, .testimonial::after { font-size: 40px; }
       .contact a {
@@ -314,7 +420,7 @@
       .hero { padding: 60px 10px; }
       .hero-text { padding: 15px 20px; }
       nav a { font-size: 12px; margin: 4px; }
-      .section { padding: 20px 10px; }
+      .section { padding: 15px 10px; }
       .testimonial { padding: 20px; }
     }
   </style>
@@ -329,6 +435,7 @@
       <a href="#contact">تواصل معنا</a>
     </nav>
   </header>
+  
   <div class="hero" data-aos="fade-up">
     <div class="hero-text">
       <h2>مرحبًا بكم في مؤسسة كن أنت</h2>
@@ -336,13 +443,25 @@
       <a href="courses.html">📚 استعرض جميع الدورات</a>
     </div>
   </div>
-  <div class="marquee">
-    <span>📢 سجل الآن في الدورات التدريبية وابدأ رحلتك نحو التطوير الشخصي والمهني!</span>
-  </div>
+  
+  
+<div class="marquee">
+  <span>
+    📢 سجل الآن في الدورات التدريبية وابدأ رحلتك نحو التطوير الشخصي والمهني!  
+    ✨ مميزات مؤسسة كن أنت: مدربون خبراء – محتوى متجدد – تطبيق عملي – دعم مستمر – متابعة فردية – شهادات معتمدة – بيئة تعليمية محفزة.  
+    📘 أهم الدورات: حفظ القرآن الكريم بالسند المتصل – تثبيت القرآن الكريم – التجويد والقراءات – التفسير وعلوم القرآن – إدارة الأعمال – الأمن السيبراني – مهارات التواصل – صناعة العباقرة – تنمية المهارات – صيانة الحواسيب – التفكير الإبداعي – التسويق الرقمي – فنون الذاكرة الخارقة – الإسعافات الأولية.  
+    🎯 اغتنم الفرصة وكن جزءًا من رحلتنا نحو التميز!  
+  </span>
+</div>
+  
+  
+  
+  
   <div class="section" id="about" data-aos="fade-right">
     <h2>من نحن</h2>
     <p style="text-align: center;">مؤسسة تدريبية رائدة تهدف إلى تقديم برامج نوعية في التعليم، التنمية البشرية، والعلوم الشرعية، لنساهم في بناء جيل مبدع وواعٍ.</p>
   </div>
+  
   <div class="section" data-aos="fade-left">
     <h2>مميزاتنا</h2>
     <div class="features">
@@ -364,15 +483,28 @@
       </div>
     </div>
   </div>
-  <div class="section" data-aos="zoom-in">
+
+  <div class="section" id="courses" data-aos="zoom-in">
     <h2>أحدث الدورات</h2>
-    <div class="courses-slider-container">
-      <div class="courses-slider" id="coursesSlider"></div>
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><span class="course-title">📘 دورة تثبيت القرآن الكريم</span></div>
+        <div class="swiper-slide"><span class="course-title">📘 دورة التجويد والقراءات</span></div>
+        <div class="swiper-slide"><span class="course-title">📘 دورة التفسير وعلوم القرآن</span></div>
+        <div class="swiper-slide"><span class="course-title">📘 دورة إدارة الأعمال</span></div>
+        <div class="swiper-slide"><span class="course-title">📘 دورة الأمن السيبراني</span></div>
+        <div class="swiper-slide"><span class="course-title">📘 دورة مهارات التواصل</span></div>
+        <div class="swiper-slide"><span class="course-title">📘 دورة الإسعافات الأولية</span></div>
+      </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-pagination"></div>
     </div>
     <p style="text-align:center; margin-top:20px;">
       <a href="courses.html" style="background:var(--secondary-color); color:var(--primary-color); padding: 12px 25px; border-radius: 8px; text-decoration: none; font-weight: bold;">عرض جميع الدورات</a>
     </p>
   </div>
+
   <div class="section" data-aos="fade-up">
     <h2>آراء طلابنا</h2>
     <div class="slider-container">
@@ -436,17 +568,91 @@
       <div class="slider-dots"></div>
     </div>
   </div>
+  
   <div class="section contact" id="contact" data-aos="flip-up">
     <h2>تواصل معنا</h2>
     <a href="https://wa.me/967771901320"><i class="fab fa-whatsapp"></i> واتساب</a>
     <a href="mailto:be.you.t2025@gmail.com"><i class="fas fa-envelope"></i> البريد الإلكتروني</a>
     <a href="https://t.me/MTYE1"><i class="fab fa-telegram"></i> تيليجرام</a>
   </div>
+  
   <footer>
     <p>© 2025 مؤسسة كن أنت للتدريب والتأهيل - جميع الحقوق محفوظة</p>
   </footer>
+  
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script src="testimonials.js"></script>
-  <script src="courses.js"></script>
+  
+  <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+  
+  <script>
+    AOS.init({ 
+      duration: 1200, 
+      easing: "ease-in-out", 
+      once: true 
+    });
+    
+    let slideIndex = 0;
+    const testimonials = document.querySelectorAll('.testimonial');
+    const dotsContainer = document.querySelector('.slider-dots');
+
+    dotsContainer.innerHTML = '';
+    const maxDots = 10;
+    for (let i = 0; i < Math.min(testimonials.length, maxDots); i++) {
+        const dot = document.createElement('span');
+        dot.classList.add('dot');
+        dot.addEventListener('click', () => showSlide(i));
+        dotsContainer.appendChild(dot);
+    }
+    
+    const dots = document.querySelectorAll('.dot');
+    
+    function showSlide(index) {
+      if (index >= testimonials.length) {
+        slideIndex = 0;
+      } else if (index < 0) {
+        slideIndex = testimonials.length - 1;
+      } else {
+        slideIndex = index;
+      }
+      
+      testimonials.forEach(testimonial => testimonial.classList.remove('active'));
+      dots.forEach(dot => dot.classList.remove('active'));
+      
+      testimonials[slideIndex].classList.add('active');
+      
+      dots[slideIndex % maxDots].classList.add('active');
+    }
+    
+    function nextSlide() {
+      showSlide(slideIndex + 1);
+    }
+    
+    setInterval(nextSlide, 4000);
+    
+    showSlide(0);
+
+    /* -------------------- إعدادات سلايدر الدورات (Swiper Course Slider) -------------------- */
+    var swiper = new Swiper(".mySwiper", {
+      /* حل جذري: تم تغيير القيمة إلى 'auto' لعرض شريحة واحدة فقط وتجاهل أجزاء الشرائح الأخرى على الجوال */
+      slidesPerView: 'auto',            
+      spaceBetween: 10,             
+      /* حل جذري: تم إزالة خاصية centeredSlides لمنع ظهور الشرائح جزئياً على الجوال */
+      // centeredSlides: true,          
+      loop: true,                    
+      autoplay: {
+        delay: 4000,                 
+        disableOnInteraction: false, 
+      },
+      pagination: {
+        el: ".swiper-pagination",    
+        clickable: true,             
+      },
+      navigation: {
+        nextEl: ".swiper-button-next", 
+        prevEl: ".swiper-button-prev", 
+      },
+    });
+  </script>
 </body>
 </html>
+
