@@ -129,6 +129,57 @@
 
   .sticky-register-btn { position: fixed; bottom:15px; right:15px; z-index:1000; display:none; padding:12px 22px; font-size:15px; border-radius:10px; font-weight:700; box-shadow:0 4px 15px rgba(0,0,0,0.2); }
 
+  /* New CSS for the Modal */
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1001;
+  }
+  .modal-content {
+    background: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 0.3s ease-out;
+  }
+  .modal-content h3 { color: #040430; margin-bottom: 20px; font-size: 22px; }
+  .modal-btn {
+    display: block;
+    width: 90%;
+    padding: 12px;
+    margin: 10px auto;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-decoration: none;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .modal-btn i { margin-left: 10px; font-size: 20px; }
+  .modal-whatsapp { background-color: #25D366; }
+  .modal-whatsapp:hover { background-color: #1DA851; }
+  .modal-messenger { background-color: #0078FF; }
+  .modal-messenger:hover { background-color: #0063CC; }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
 </style>
 </head>
 <body>
@@ -234,6 +285,15 @@
 
 <a href="#registrationForm" class="btn btn-register sticky-register-btn">سجل الآن</a>
 
+<div class="modal-overlay" id="contactModal">
+  <div class="modal-content">
+    <h3>تم التسجيل بنجاح!</h3>
+    <p>تواصل معنا لإتمام التسجيل في الدورة:</p>
+    <a href="#" class="modal-btn modal-whatsapp" id="whatsapp-btn"><i class="fab fa-whatsapp"></i>واتساب</a>
+    <a href="#" class="modal-btn modal-messenger" id="messenger-btn"><i class="fab fa-facebook-messenger"></i>ماسنجر</a>
+  </div>
+</div>
+
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
   AOS.init({ duration: 1000, easing: "ease-in-out", once: true });
@@ -283,16 +343,22 @@
   const scriptURL = 'https://script.google.com/macros/s/AKfycbztWgyn56xZxcgj3S9TVLnR47CfEFluzCX8q-VDL3THa-NCZCBsyEm9Hk2UyjyV39DMuw/exec';
   const form = document.forms['form'];
   const submitButton = form.querySelector('button[type="submit"]');
+  const contactModal = document.getElementById('contactModal');
 
   function submitForm(e){
     e.preventDefault();
+
+    // Remove spaces from phone number input
+    const phoneInput = form.querySelector('input[name="phone"]');
+    phoneInput.value = phoneInput.value.replace(/\s/g, '');
+
     submitButton.disabled = true;
     submitButton.textContent = 'جاري الإرسال...';
     
     fetch(scriptURL, { method: 'POST', body: new FormData(form)})
       .then(response => {
-        alert('تم إرسال بياناتك بنجاح! شكراً لتسجيلك.');
-        form.reset();
+        // Show contact options after successful submission
+        showContactOptions();
       })
       .catch(error => alert('حدث خطأ أثناء الإرسال. حاول مرة أخرى.'))
       .finally(() => {
@@ -300,6 +366,42 @@
         submitButton.textContent = 'إرسال البيانات';
       });
   }
+
+  function showContactOptions() {
+    contactModal.style.display = 'flex';
+    form.reset();
+  }
+
+  // Generate pre-filled WhatsApp message
+  document.getElementById('whatsapp-btn').addEventListener('click', () => {
+    const formData = new FormData(form);
+    const name = formData.get('name');
+    const gender = formData.get('gender');
+    const age = formData.get('age');
+    const country = formData.get('country');
+    const phone = formData.get('phone');
+    const telegram = formData.get('Telegram');
+    const course = document.title.replace(' - مؤسسة كن أنت', '').trim();
+
+    const message = `السلام عليكم، تم التسجيل في دورة "${course}".
+الاسم: ${name}
+الجنس: ${gender}
+العمر: ${age}
+البلد: ${country}
+رقم الهاتف: ${phone}
+رابط التيليجرام: ${telegram}
+أرجو إتمام التسجيل في الدورة.`;
+
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappLink = `https://wa.me/967778185189?text=${encodedMessage}`;
+    window.open(whatsappLink, '_blank');
+  });
+
+  // Messenger link
+  document.getElementById('messenger-btn').addEventListener('click', () => {
+    const messengerLink = `https://m.me/your_messenger_username`; // Replace with your Messenger username
+    window.open(messengerLink, '_blank');
+  });
   
 // تعبئة حقل اسم الدورة المخفي من عنوان الصفحة
 document.addEventListener('DOMContentLoaded', () => {
