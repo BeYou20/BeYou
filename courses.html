@@ -3,10 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>قائمة الدورات - مؤسسة كن أنت</title>
+<meta name="description" content="مؤسسة كن أنت للتدريب والتأهيل. استكشف دوراتنا المتنوعة في القرآن الكريم، التنمية البشرية، البرمجة، وريادة الأعمال. دورات أونلاين لتطوير مهاراتك نحو المستقبل.">
+<meta name="keywords" content="دورات أونلاين, دورات تدريبية, تنمية بشرية, دورات قرآنية, برمجة, ريادة أعمال, تعلم عن بعد, مؤسسة كن أنت">
+<title>جميع الدورات التدريبية - مؤسسة كن أنت</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
-
 <style>
 body {
     font-family: "Tahoma", sans-serif;
@@ -39,33 +40,21 @@ h2 {
     border-bottom: 3px solid #36a506;
     padding-bottom: 5px;
 }
-.course-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 15px;
-}
-.course-button {
-    display: block;
-    padding: 12px;
-    background-color: #36a506;
-    color: #fff;
+.intro-text {
     text-align: center;
-    text-decoration: none;
-    border-radius: 8px;
-    font-weight: bold;
-    font-size: 15px;
-    transition: all 0.3s ease;
+    color: #555;
+    margin-bottom: 25px;
+    font-size: 16px;
+    padding: 10px;
 }
-.course-button:hover {
-    background-color: #99f612;
-    color: #040430;
-    transform: translateY(-2px);
+.nav-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
 }
-.home-button {
-    display: block;
-    margin: 20px auto;
-    padding: 12px;
-    width: fit-content;
+.nav-button {
+    padding: 12px 20px;
     background-color: #040430;
     color: #99f612;
     text-align: center;
@@ -74,15 +63,118 @@ h2 {
     font-weight: bold;
     transition: all 0.3s ease;
 }
-.home-button:hover {
+.nav-button:hover {
     background-color: #36a506;
     color: #fff;
+}
+.search-container {
+    text-align: center;
+    margin-bottom: 20px;
+    position: relative;
+}
+#search-bar {
+    width: 90%;
+    max-width: 400px;
+    padding: 12px 40px 12px 15px;
+    border: 2px solid #36a506;
+    border-radius: 8px;
+    font-size: 16px;
+    direction: rtl;
+}
+.search-container i {
+    position: absolute;
+    top: 50%;
+    right: calc(5% + 15px);
+    transform: translateY(-50%);
+    color: #99f612;
+}
+.filter-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+.filter-btn {
+    padding: 8px 15px;
+    background-color: #f0f0f0;
+    color: #040430;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+.filter-btn.active, .filter-btn:hover {
+    background-color: #36a506;
+    color: #fff;
+    border-color: #36a506;
+}
+.course-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 25px;
+}
+.course-button-container {
+    position: relative;
+}
+.course-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 18px;
+    background-color: #36a506;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    height: 100%;
+    border: 4px solid #ffffff; /* Added white border */
+}
+.course-button i {
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+.course-button:hover {
+    background-color: #99f612;
+    color: #040430;
+    transform: translateY(-5px);
+}
+.fixed-whatsapp {
+    position: fixed;
+    bottom: 25px;
+    left: 25px;
+    z-index: 1000;
+}
+.fixed-whatsapp a {
+    display: block;
+    width: 60px;
+    height: 60px;
+    background-color: #25d366;
+    color: #fff;
+    text-align: center;
+    line-height: 60px;
+    font-size: 30px;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+.fixed-whatsapp a:hover {
+    transform: scale(1.1);
 }
 /* Mobile optimization */
 @media (max-width: 768px) {
     h1 { font-size: 24px; }
     h2 { font-size: 20px; }
+    .nav-buttons { flex-direction: column; }
     .course-button { font-size: 14px; padding: 10px; }
+    .course-grid {
+        gap: 15px;
+    }
 }
 </style>
 </head>
@@ -91,146 +183,178 @@ h2 {
 <div class="container">
     <h1 data-aos="fade-down">جميع الدورات التدريبية</h1>
 
-    <a href="index.html" class="home-button" data-aos="fade-up"><i class="fas fa-home"></i> العودة للصفحة الرئيسية</a>
-
-    <h2 data-aos="fade-right">1. الدورات القرآنية</h2>
-    <div class="course-grid">
-    	<a href="Memorizing-quran-fixation.html" class="course-button" data-aos="zoom-in">حفظ القرآن الكريم</a>
-        <a href="course-quran-fixation.html" class="course-button" data-aos="zoom-in">تثبيت القرآن الكريم</a>
-        <a href="course-tajweed.html" class="course-button" data-aos="zoom-in">التجويد والقراءات</a>
-        <a href="course-ijazah.html" class="course-button" data-aos="zoom-in">إجازة القرآن</a>
-        <a href="course-tafsir.html" class="course-button" data-aos="zoom-in">التفسير وعلوم القرآن</a>
-        <a href="course-specific-groups.html" class="course-button" data-aos="zoom-in">دورات لفئات معينة (أطفال – شباب – نساء)</a>
-        <a href="Hadith-Sciences.html" class="course-button" data-aos="zoom-in">علوم الحديث الشريف </a>
-        <a href="Tajweed-Sciences.html" class="course-button" data-aos="zoom-in">علوم التجويد المتقدم </a>
-        <a href="Quick-memorization.html" class="course-button" data-aos="zoom-in">الحفظ السريع للقرآن الكريم </a>
+    <div class="intro-text" data-aos="fade-up">
+        <p>مؤسسة كن أنت للتدريب والتأهيل - نقدم لكم مجموعة متنوعة من الدورات الأكاديمية والمهنية لتطوير مهاراتكم نحو المستقبل. تصفحوا قائمة دوراتنا الشاملة وابدأوا رحلتكم نحو التميز.</p>
     </div>
 
-    <h2 data-aos="fade-right" data-aos-delay="100">2. الدبلومات الأكاديمية والتقنية</h2>
+    <div class="nav-buttons" data-aos="fade-up">
+        <a href="index.html" class="nav-button"><i class="fas fa-home"></i> الرئيسية</a>
+        <a href="https://beyou20.github.io/BeYou/Contact-Usaa.html" class="nav-button" target="_blank"><i class="fas fa-phone-alt"></i> تواصل معنا</a>
+    </div>
+
+    <div class="search-container" data-aos="fade-up">
+        <input type="text" id="search-bar" placeholder="ابحث عن دورة..." />
+        <i class="fas fa-search"></i>
+    </div>
+
+    <h2 data-aos="fade-right">1. الدورات المميزة (الأكثر طلبًا)</h2>
     <div class="course-grid">
-        <a href="Diploma-Business.html" class="course-button" data-aos="zoom-in">دبلوم إدارة الأعمال</a>
-        <a href="diploma-accounting.html" class="course-button" data-aos="zoom-in">دبلوم المحاسبة المالية</a>
-        <a href="diploma-graphic.html" class="course-button" data-aos="zoom-in">دبلوم الجرافيك ديزاين</a>
-        <a href="diploma-marketing.html" class="course-button" data-aos="zoom-in">دبلوم التسويق الرقمي</a>
-        <a href="diploma-cybersecurity.html" class="course-button" data-aos="zoom-in">دبلوم الأمن السيبراني</a>
-        <a href="diploma-development.html" class="course-button" data-aos="zoom-in">دبلوم تطوير الأعمال</a>
-        <a href="Diploma-English.html" class="course-button" data-aos="zoom-in">دبلوم اللغة الإنجليزية</a>
-        <a href="Diploma-Artificial-Intelligence.html" class="course-button" data-aos="zoom-in">دبلوم الذكاء الاصطناعي  </a>
-        <a href="Data-analysis.html" class="course-button" data-aos="zoom-in">دبلوم تحليل البيانات والبيانات الكبيرة </a>
-        <a href="Artificial-Intelligence-Marketing.html" class="course-button" data-aos="zoom-in">دبلوم التسويق عبر منصات الذكاء الاصطناعي </a>
-        <a href="Diploma-Entrepreneurship.html" class="course-button" data-aos="zoom-in">دبلوم ريادة الأعمال الرقمية </a>
-        <a href="Advanceda-Cybersecurity.html" class="course-button" data-aos="zoom-in">دبلوم الأمن السيبراني المتقدم </a>
+        <div class="course-button-container" data-aos="zoom-in"><a href="Startup-Feasibility-Study.html" class="course-button"><i class="fas fa-chart-pie"></i> دراسة جدوى المشاريع الناشئة</a></div>
+        <div class="course-button-container" data-aos="zoom-in"><a href="diploma-marketing.html" class="course-button"><i class="fas fa-bullhorn"></i> دبلوم التسويق الرقمي</a></div>
+        <div class="course-button-container" data-aos="zoom-in"><a href="Emotional-intelligence.html" class="course-button"><i class="fas fa-brain"></i> الذكاء العاطفي</a></div>
+        <div class="course-button-container" data-aos="zoom-in"><a href="Professional-projects.html" class="course-button"><i class="fas fa-tasks"></i> المشاريع الاحترافية (PMP)</a></div>
+        <div class="course-button-container" data-aos="zoom-in"><a href="Diploma-Artificial-Intelligence.html" class="course-button"><i class="fas fa-robot"></i> دبلوم الذكاء الاصطناعي</a></div>
+    </div>
+
+    <h2 data-aos="fade-right" data-aos-delay="100">2. الدورات القرآنية</h2>
+    <div class="course-grid">
+    	<div class="course-button-container" data-aos="zoom-in"><a href="Memorizing-quran-fixation.html" class="course-button"><i class="fas fa-quran"></i> حفظ القرآن الكريم</a></div>
+        <div class="course-button-container" data-aos="zoom-in"><a href="course-quran-fixation.html" class="course-button"><i class="fas fa-mosque"></i> تثبيت القرآن الكريم</a></div>
+        <div class="course-button-container" data-aos="zoom-in"><a href="course-tajweed.html" class="course-button"><i class="fas fa-star-and-crescent"></i> التجويد والقراءات</a></div>
+        <div class="course-button-container" data-aos="zoom-in"><a href="course-ijazah.html" class="course-button"><i class="fas fa-certificate"></i> إجازة القرآن</a></div>
+        <div class="course-button-container" data-aos="zoom-in"><a href="course-tafsir.html" class="course-button"><i class="fas fa-book-open"></i> التفسير وعلوم القرآن</a></div>
+        <div class="course-button-container" data-aos="zoom-in"><a href="course-specific-groups.html" class="course-button"><i class="fas fa-users-crown"></i> دورات لفئات معينة</a></div>
+        <div class="course-button-container" data-aos="zoom-in"><a href="Hadith-Sciences.html" class="course-button"><i class="fas fa-book-bookmark"></i> علوم الحديث الشريف </a></div>
+        <div class="course-button-container" data-aos="zoom-in"><a href="Tajweed-Sciences.html" class="course-button"><i class="fas fa-feather-pointed"></i> علوم التجويد المتقدم </a></div>
+        <div class="course-button-container" data-aos="zoom-in"><a href="Quick-memorization.html" class="course-button"><i class="fas fa-brain-circuit"></i> الحفظ السريع</a></div>
+    </div>
+
+    <h2 data-aos="fade-right" data-aos-delay="200" data-category="business,tech,finance,language">3. الدبلومات الأكاديمية والتقنية</h2>
+    <div class="filter-buttons" data-aos="fade-up">
+        <span class="filter-btn active" data-filter="all">الكل</span>
+        <span class="filter-btn" data-filter="tech">تقنية</span>
+        <span class="filter-btn" data-filter="business">إدارة أعمال</span>
+        <span class="filter-btn" data-filter="finance">مالية</span>
+        <span class="filter-btn" data-filter="language">لغات</span>
+    </div>
+    <div class="course-grid" id="diplomas-grid">
+        <div class="course-button-container" data-aos="zoom-in" data-category="business"><a href="Diploma-Business.html" class="course-button"><i class="fas fa-briefcase"></i> دبلوم إدارة الأعمال</a></div>
+        <div class="course-button-container" data-aos="zoom-in" data-category="finance"><a href="diploma-accounting.html" class="course-button"><i class="fas fa-calculator"></i> دبلوم المحاسبة المالية</a></div>
+        <div class="course-button-container" data-aos="zoom-in" data-category="tech"><a href="diploma-graphic.html" class="course-button"><i class="fas fa-paint-brush"></i> دبلوم الجرافيك ديزاين</a></div>
+        <div class="course-button-container" data-aos="zoom-in" data-category="business,tech"><a href="diploma-marketing.html" class="course-button"><i class="fas fa-bullhorn"></i> دبلوم التسويق الرقمي</a></div>
+        <div class="course-button-container" data-aos="zoom-in" data-category="tech"><a href="diploma-cybersecurity.html" class="course-button"><i class="fas fa-shield-alt"></i> دبلوم الأمن السيبراني</a></div>
+        <div class="course-button-container" data-aos="zoom-in" data-category="business"><a href="diploma-development.html" class="course-button"><i class="fas fa-chart-line"></i> دبلوم تطوير الأعمال</a></div>
+        <div class="course-button-container" data-aos="zoom-in" data-category="language"><a href="Diploma-English.html" class="course-button"><i class="fas fa-globe"></i> دبلوم اللغة الإنجليزية</a></div>
+        <div class="course-button-container" data-aos="zoom-in" data-category="tech"><a href="Diploma-Artificial-Intelligence.html" class="course-button"><i class="fas fa-robot"></i> دبلوم الذكاء الاصطناعي  </a></div>
+        <div class="course-button-container" data-aos="zoom-in" data-category="tech"><a href="Data-analysis.html" class="course-button"><i class="fas fa-database"></i> دبلوم تحليل البيانات </a></div>
+        <div class="course-button-container" data-aos="zoom-in" data-category="business,tech"><a href="Artificial-Intelligence-Marketing.html" class="course-button"><i class="fas fa-magic-wand-sparkles"></i> دبلوم التسويق Via AI </a></div>
+        <div class="course-button-container" data-aos="zoom-in" data-category="business"><a href="Diploma-Entrepreneurship.html" class="course-button"><i class="fas fa-rocket"></i> دبلوم ريادة الأعمال الرقمية </a></div>
+        <div class="course-button-container" data-aos="zoom-in" data-category="tech"><a href="Advanceda-Cybersecurity.html" class="course-button"><i class="fas fa-user-secret"></i> دبلوم الأمن السيبراني المتقدم </a></div>
+        <div class="course-button-container" data-aos="zoom-in" data-category="business,human-dev"><a href="Diploma-Genius-Industry.html" class="course-button"><i class="fas fa-lightbulb"></i> دبلوم صناعة العباقرة </a></div>
     </div>
     
-    <h2 data-aos="fade-right" data-aos-delay="200">3. التنمية البشرية وتطوير الذات</h2>
+    <h2 data-aos="fade-right" data-aos-delay="300">4. التنمية البشرية وتطوير الذات</h2>
     <div class="course-grid">
-        <a href="course-human-development.html" class="course-button" data-aos="zoom-in">تنمية بشرية</a>
-        <a href="course-personality.html" class="course-button" data-aos="zoom-in">بناء الشخصية</a>
-        <a href="course-team-building.html" class="course-button" data-aos="zoom-in">بناء الفريق</a>
-        <a href="course-become-trainer.html" class="course-button" data-aos="zoom-in">كيف تصبح مدربًا</a>
-        <a href="course-thinking-skills.html" class="course-button" data-aos="zoom-in">مهارات التفكير الأساسية</a>
-        <a href="course-thinking-integration.html" class="course-button" data-aos="zoom-in">دمج مهارات التفكير في المناهج الدراسية</a>
-        <a href="course-talented.html" class="course-button" data-aos="zoom-in">اكتشاف ورعاية الموهوبين</a>
-        <a href="course-communication.html" class="course-button" data-aos="zoom-in">مهارات الاتصال والتواصل</a>
-        <a href="course-training-methods.html" class="course-button" data-aos="zoom-in">أساليب التدريب</a>
-        <a href="course-management-art.html" class="course-button" data-aos="zoom-in">فن الإدارة</a>
-        <a href="Emotional-intelligence.html" class="course-button" data-aos="zoom-in">الذكاء العاطفي وإدارة المشاعر </a>
-        <a href="Modern-Leadership-and-Management.html" class="course-button" data-aos="zoom-in">القيادة والإدارة الحديثة </a>
-        <a href="Negotiation-and-Persuasion-Skills.html" class="course-button" data-aos="zoom-in">مهارات التفاوض والإقناع </a>
-        <a href="Time-management.html" class="course-button" data-aos="zoom-in">إدارة الوقت وزيادة الإنتاجية </a>
-        <a href="creative-thinking-and-problem-solving.html" class="course-button" data-aos="zoom-in">التفكير الإبداعي وحل المشكلات </a>
+        <div class="course-button-container" data-aos="zoom-in"><a href="course-human-development.html" class="course-button"><i class="fas fa-user-graduate"></i> تنمية بشرية</a></div>
+        <div class="course-button-container" data-aos="zoom-in"><a href="course-personality.html" class="course-button"><i class="fas fa-person-chalkboard"></i> بناء الشخصية</a></div>
+        <div class="course-button-container" data-aos="zoom-in"><a href="course-team-building.html" class="course-button"><i class="fas fa-users-line"></i> بناء الفريق</a></div>
+        <div class="course-button-container" data-aos="zoom-in"><a href="course-become-trainer.html" class="course-button"><i class="fas fa-chalkboard-user"></i> كيف تصبح مدربًا</a></div>
+        <div class="course-button-container" data-aos="zoom-in"><a href="course-thinking-skills.html" class="course-button"><i class="fas fa-head-side-gears"></i> مهارات التفكير</a></div>
+        <div class="course-button-container" data-aos="zoom-in"><a href="course-thinking-integration.html" class="course-button"><i class="fas fa-puzzle-piece"></i> دمج مهارات التفكير</a></div>
+        <div class="course-button-container" data-aos="zoom-in"><a href="course-talented.html" class="course-button"><i class="fas fa-lightbulb"></i> اكتشاف الموهوبين</a></div>
+        <div class="course-button-container" data-aos="zoom-in"><a href="course-communication.html" class="course-button"><i class="fas fa-comments"></i> الاتصال والتواصل</a></div>
+        <div class="course-button-container" data-aos="zoom-in"><a href="course-training-methods.html" class="course-button"><i class="fas fa-tools"></i> أساليب التدريب</a></div>
+        <div class="course-button-container" data-aos="zoom-in"><a href="course-management-art.html" class="course-button"><i class="fas fa-user-tie"></i> فن الإدارة</a></div>
+        <div class="course-button-container" data-aos="zoom-in"><a href="Emotional-intelligence.html" class="course-button"><i class="fas fa-heart"></i> الذكاء العاطفي </a></div>
+        <div class="course-button-container" data-aos="zoom-in"><a href="Modern-Leadership-and-Management.html" class="course-button"><i class="fas fa-crown"></i> القيادة والإدارة الحديثة </a></div>
+        <div class="course-button-container" data-aos="zoom-in"><a href="Negotiation-and-Persuasion-Skills.html" class="course-button"><i class="fas fa-handshake-angle"></i> التفاوض والإقناع </a></div>
+        <div class="course-button-container" data-aos="zoom-in"><a href="Time-management.html" class="course-button"><i class="fas fa-hourglass-start"></i> إدارة الوقت </a></div>
+        <div class="course-button-container" data-aos="zoom-in"><a href="creative-thinking-and-problem-solving.html" class="course-button"><i class="fas fa-lightbulb-on"></i> التفكير الإبداعي </a></div>
     </div>
 
-    <h2 data-aos="fade-right" data-aos-delay="300">4. التدريب التقني والبرمجي</h2>
+    <h2 data-aos="fade-right" data-aos-delay="400">5. التدريب التقني والبرمجي</h2>
     <div class="course-grid">
-        <a href="course-programming.html" class="course-button" data-aos="zoom-in">أساسيات البرمجة</a>
-        <a href="course-computer.html" class="course-button" data-aos="zoom-in">دورات الحاسوب (وورد – إكسل – بوربوينت – أكسس)</a>
-        <a href="International-computer-driving-license.html" class="course-button" data-aos="zoom-in">الرخصة الدولية لقيادة الحاسوب</a>
-        <a href="Advanced-Python-Programming.html" class="course-button" data-aos="zoom-in">البرمجة المتقدمة (بايثون – جافا – C++) </a>
-        <a href="Mobile-App-Development.html" class="course-button" data-aos="zoom-in">تطوير تطبيقات الموبايل (Android & iOS) </a>
-        <a href="Game-Development.html" class="course-button" data-aos="zoom-in">تطوير الألعاب (Unity – Unreal Engine) </a>
-        <a href="User-Interface-Design.html" class="course-button" data-aos="zoom-in">تصميم واجهات وتجربة المستخدم (UX/UI) </a>
-        <a href="practical-cybersecurity-and-ethical-hacking.html" class="course-button" data-aos="zoom-in">الأمن السيبراني العملي والاختراق الأخلاقي </a>
+        <div class="course-button-container" data-aos="zoom-in"><a href="course-programming.html" class="course-button"><i class="fas fa-code"></i> أساسيات البرمجة</a></div>
+        <div class="course-button-container" data-aos="zoom-in"><a href="course-computer.html" class="course-button"><i class="fas fa-laptop-code"></i> دورات الحاسوب</a></div>
+        <div class="course-button-container" data-aos="zoom-in"><a href="International-computer-driving-license.html" class="course-button"><i class="fas fa-id-card"></i> الرخصة الدولية للحاسوب</a></div>
+        <div class="course-button-container" data-aos="zoom-in"><a href="Advanced-Python-Programming.html" class="course-button"><i class="fab fa-python"></i> البرمجة المتقدمة </a></div>
+        <div class="course-button-container" data-aos="zoom-in"><a href="Mobile-App-Development.html" class="course-button"><i class="fas fa-mobile-alt"></i> تطوير تطبيقات الموبايل </a></div>
+        <div class="course-button-container" data-aos="zoom-in"><a href="Game-Development.html" class="course-button"><i class="fas fa-gamepad"></i> تطوير الألعاب </a></div>
+        <div class="course-button-container" data-aos="zoom-in"><a href="User-Interface-Design.html" class="course-button"><i class="fas fa-drafting-compass"></i> تصميم واجهات (UX/UI) </a></div>
+        <div class="course-button-container" data-aos="zoom-in"><a href="practical-cybersecurity-and-ethical-hacking.html" class="course-button"><i class="fas fa-user-ninja"></i> الاختراق الأخلاقي </a></div>
     </div>
 
-    <h2 data-aos="fade-right" data-aos-delay="400">5. الدورات الإبداعية والفنية</h2>
+    <h2 data-aos="fade-right" data-aos-delay="500">6. الدورات الإبداعية والفنية</h2>
     <div class="course-grid">
-        <a href="course-drawing.html" class="course-button" data-aos="zoom-in">الرسم (ألوان مائية – رصاص – زيتي)</a>
-        <a href="course-photography.html" class="course-button" data-aos="zoom-in">التصوير (بالموبايل – بالكاميرا)</a>
-        <a href="course-editing.html" class="course-button" data-aos="zoom-in">المونتاج (الكمبيوتر + الموبايل)</a>
-        <a href="course-graphics.html" class="course-button" data-aos="zoom-in">الجرافيكس (فوتوشوب – انديزاين – تصميم الثيمات – التصميم بالجوال)</a>
-        <a href="course-candles.html" class="course-button" data-aos="zoom-in">صناعة الشموع</a>
-        <a href="course-incense.html" class="course-button" data-aos="zoom-in">صناعة البخور</a>
-        <a href="course-sewing.html" class="course-button" data-aos="zoom-in">الخياطة والتصميم</a>
-        <a href="the-art-resin-making.html" class="course-button" data-aos="zoom-in">فن صناعة الريزن</a>
-        <a href="content-industry-digital.html" class="course-button" data-aos="zoom-in">صناعة المحتوى الرقمي (اليوتيوب – تيك توك – البودكاست) </a>
-        <a href="Design-Trans-Artificial-Intelligence.html" class="course-button" data-aos="zoom-in">التصميم عبر الذكاء الاصطناعي </a>
-        <a href="creative-Arts.html" class="course-button" data-aos="zoom-in">فنون الكتابة الإبداعية الحديثة </a>
-        <a href="video-photography-editing.html" class="course-button" data-aos="zoom-in">تصوير ومونتاج الفيديو المتقدم </a>
+        <div class="course-button-container" data-aos="zoom-in"><a href="course-drawing.html" class="course-button"><i class="fas fa-palette"></i> الرسم</a></div>
+        <div class="course-button-container" data-aos="zoom-in"><a href="course-photography.html" class="course-button"><i class="fas fa-camera"></i> التصوير</a></div>
+        <div class="course-button-container" data-aos="zoom-in"><a href="course-editing.html" class="course-button"><i class="fas fa-video"></i> المونتاج</a></div>
+        <div class="course-button-container" data-aos="zoom-in"><a href="course-graphics.html" class="course-button"><i class="fas fa-desktop"></i> الجرافيكس</a></div>
+        <div class="course-button-container" data-aos="zoom-in"><a href="course-candles.html" class="course-button"><i class="fas fa-candle-holder"></i> صناعة الشموع</a></div>
+        <div class="course-button-container" data-aos="zoom-in"><a href="course-incense.html" class="course-button"><i class="fas fa-smog"></i> صناعة البخور</a></div>
+        <div class="course-button-container" data-aos="zoom-in"><a href="course-sewing.html" class="course-button"><i class="fas fa-cut"></i> الخياطة والتصميم</a></div>
+        <div class="course-button-container" data-aos="zoom-in"><a href="the-art-resin-making.html" class="course-button"><i class="fas fa-atom"></i> فن صناعة الريزن</a></div>
+        <div class="course-button-container" data-aos="zoom-in"><a href="content-industry-digital.html" class="course-button"><i class="fas fa-newspaper"></i> صناعة المحتوى </a></div>
+        <div class="course-button-container" data-aos="zoom-in"><a href="Design-Trans-Artificial-Intelligence.html" class="course-button"><i class="fas fa-image"></i> التصميم بالذكاء الاصطناعي </a></div>
+        <div class="course-button-container" data-aos="zoom-in"><a href="creative-Arts.html" class="course-button"><i class="fas fa-pen-nib"></i> فنون الكتابة الإبداعية </a></div>
+        <div class="course-button-container" data-aos="zoom-in"><a href="video-photography-editing.html" class="course-button"><i class="fas fa-film"></i> تصوير ومونتاج الفيديو </a></div>
     </div>
 
-    <h2 data-aos="fade-right" data-aos-delay="500">6. الدورات المتخصصة القصيرة</h2>
+    <h2 data-aos="fade-right" data-aos-delay="600">7. الدورات المتخصصة القصيرة</h2>
     <div class="course-grid">
-        <a href="course-social-media.html" class="course-button" data-aos="zoom-in">استراتيجية التسويق عبر وسائل التواصل الاجتماعي</a>
-        <a href="course-digital-ads.html" class="course-button" data-aos="zoom-in">تصميم الإعلانات الرقمية</a>
-        <a href="course-pharmacy.html" class="course-button" data-aos="zoom-in">الصيدلية الرقمية</a>
-        <a href="course-customer-service.html" class="course-button" data-aos="zoom-in">خدمة العملاء وإدارة المبيعات</a>
-        <a href="course-etiquette.html" class="course-button" data-aos="zoom-in">التدريب على الإتيكيت (الأنثى السعيدة)</a>
-        <a href="course-first-aid.html" class="course-button" data-aos="zoom-in">دورة الإسعافات الأولية</a>
-        <a href="course-cooking.html" class="course-button" data-aos="zoom-in">دورة الطبخ</a>
-        <a href="course-online-earning.html" class="course-button" data-aos="zoom-in">دورة الربح من الإنترنت</a>
-        <a href="course-leadership.html" class="course-button" data-aos="zoom-in">التدريب القيادي وتطوير الذات</a>
+        <div class="course-button-container" data-aos="zoom-in"><a href="course-social-media.html" class="course-button"><i class="fas fa-share-nodes"></i> استراتيجية التسويق</a></div>
+        <div class="course-button-container" data-aos="zoom-in"><a href="course-digital-ads.html" class="course-button"><i class="fas fa-ad"></i> تصميم الإعلانات</a></div>
+        <div class="course-button-container" data-aos="zoom-in"><a href="course-pharmacy.html" class="course-button"><i class="fas fa-pills"></i> الصيدلية الرقمية</a></div>
+        <div class="course-button-container" data-aos="zoom-in"><a href="course-customer-service.html" class="course-button"><i class="fas fa-headset"></i> خدمة العملاء</a></div>
+        <div class="course-button-container" data-aos="zoom-in"><a href="course-etiquette.html" class="course-button"><i class="fas fa-handshake"></i> الإتيكيت</a></div>
+        <div class="course-button-container" data-aos="zoom-in"><a href="course-first-aid.html" class="course-button"><i class="fas fa-medkit"></i> الإسعافات الأولية</a></div>
+        <div class="course-button-container" data-aos="zoom-in"><a href="course-cooking.html" class="course-button"><i class="fas fa-utensils"></i> الطبخ</a></div>
+        <div class="course-button-container" data-aos="zoom-in"><a href="course-online-earning.html" class="course-button"><i class="fas fa-dollar-sign"></i> الربح من الإنترنت</a></div>
+        <div class="course-button-container" data-aos="zoom-in"><a href="course-leadership.html" class="course-button"><i class="fas fa-users-viewfinder"></i> التدريب القيادي</a></div>
     </div>
 
-    <h2 data-aos="fade-right" data-aos-delay="600">7. الدورات الخاصة بالتعليم والتدريب</h2>
+    <h2 data-aos="fade-right" data-aos-delay="700">8. الدورات الخاصة بالتعليم والتدريب</h2>
     <div class="course-grid">
-        <a href="course-reading.html" class="course-button" data-aos="zoom-in">نهج القراءة</a>
-        <a href="course-active-learning.html" class="course-button" data-aos="zoom-in">التعلم النشط</a>
-        <a href="course-planning.html" class="course-button" data-aos="zoom-in">التخطيط الفصلي واليومي</a>
-        <a href="course-assessment.html" class="course-button" data-aos="zoom-in">التقويم الصفي</a>
-        <a href="course-specifications.html" class="course-button" data-aos="zoom-in">جدول المواصفات</a>
-        <a href="course-questions.html" class="course-button" data-aos="zoom-in">أسلوب بناء الأسئلة الاختبارية</a>
-        <a href="course-class-management.html" class="course-button" data-aos="zoom-in">إدارة الصف</a>
-        <a href="course-problem-solving.html" class="course-button" data-aos="zoom-in">حل المشكلات الصفية</a>
-        <a href="course-supervision.html" class="course-button" data-aos="zoom-in">أساليب الإشراف التربوي</a>
-        <a href="course-math.html" class="course-button" data-aos="zoom-in">مهارات تدريس الرياضيات</a>
-        <a href="course-math-strategies.html" class="course-button" data-aos="zoom-in">استراتيجيات تعلم الرياضيات</a>
-        <a href="course-primary.html" class="course-button" data-aos="zoom-in">أساليب تدريس العلوم واللغة العربية للصفوف الأولية</a>
-        <a href="Distance-Learning-Methods.html" class="course-button" data-aos="zoom-in">أساليب التعليم الرقمي والتعليم عن بعد </a>
-        <a href="Curriculum-Design.html" class="course-button" data-aos="zoom-in">تصميم المناهج والبرامج التعليمية </a>
-        <a href="Gamificationt.html" class="course-button" data-aos="zoom-in">التعليم التفاعلي وGamification </a>
-        <a href="Assessment-Evaluation.html" class="course-button" data-aos="zoom-in">التقييم والتقويم الإلكتروني للطلاب </a>
-        <a href="strengthening-courses.html" class="course-button" data-aos="zoom-in">دورات تقوية</a>
+        <div class="course-button-container" data-aos="zoom-in"><a href="course-reading.html" class="course-button"><i class="fas fa-book"></i> نهج القراءة</a></div>
+        <div class="course-button-container" data-aos="zoom-in"><a href="course-active-learning.html" class="course-button"><i class="fas fa-person-running"></i> التعلم النشط</a></div>
+        <div class="course-button-container" data-aos="zoom-in"><a href="course-planning.html" class="course-button"><i class="fas fa-calendar-alt"></i> التخطيط الفصلي</a></div>
+        <div class="course-button-container" data-aos="zoom-in"><a href="course-assessment.html" class="course-button"><i class="fas fa-marker"></i> التقويم الصفي</a></div>
+        <div class="course-button-container" data-aos="zoom-in"><a href="course-specifications.html" class="course-button"><i class="fas fa-list-check"></i> جدول المواصفات</a></div>
+        <div class="course-button-container" data-aos="zoom-in"><a href="course-questions.html" class="course-button"><i class="fas fa-clipboard-question"></i> بناء الأسئلة</a></div>
+        <div class="course-button-container" data-aos="zoom-in"><a href="course-class-management.html" class="course-button"><i class="fas fa-user-group"></i> إدارة الصف</a></div>
+        <div class="course-button-container" data-aos="zoom-in"><a href="course-problem-solving.html" class="course-button"><i class="fas fa-lightbulb-on"></i> حل المشكلات الصفية</a></div>
+        <div class="course-button-container" data-aos="zoom-in"><a href="course-supervision.html" class="course-button"><i class="fas fa-glasses"></i> الإشراف التربوي</a></div>
+        <div class="course-button-container" data-aos="zoom-in"><a href="course-math.html" class="course-button"><i class="fas fa-square-root-alt"></i> تدريس الرياضيات</a></div>
+        <div class="course-button-container" data-aos="zoom-in"><a href="course-math-strategies.html" class="course-button"><i class="fas fa-infinity"></i> استراتيجيات الرياضيات</a></div>
+        <div class="course-button-container" data-aos="zoom-in"><a href="course-primary.html" class="course-button"><i class="fas fa-child"></i> تدريس الصفوف الأولية</a></div>
+        <div class="course-button-container" data-aos="zoom-in"><a href="Distance-Learning-Methods.html" class="course-button"><i class="fas fa-laptop-house"></i> التعليم الرقمي </a></div>
+        <div class="course-button-container" data-aos="zoom-in"><a href="Curriculum-Design.html" class="course-button"><i class="fas fa-pen-ruler"></i> تصميم المناهج </a></div>
+        <div class="course-button-container" data-aos="zoom-in"><a href="Gamificationt.html" class="course-button"><i class="fas fa-gamepad"></i> التعليم التفاعلي </a></div>
+        <div class="course-button-container" data-aos="zoom-in"><a href="Assessment-Evaluation.html" class="course-button"><i class="fas fa-poll-h"></i> التقييم الإلكتروني </a></div>
+        <div class="course-button-container" data-aos="zoom-in"><a href="strengthening-courses.html" class="course-button"><i class="fas fa-book-reader"></i> دورات تقوية</a></div>
     </div>
 
-    <h2 data-aos="fade-right" data-aos-delay="700">8. دورات المجتمع المدني والإدارة</h2>
+    <h2 data-aos="fade-right" data-aos-delay="800">9. دورات المجتمع المدني والإدارة</h2>
     <div class="course-grid">
-        <a href="course-strategic-planning.html" class="course-button" data-aos="zoom-in">التخطيط الاستراتيجي لمنظمات المجتمع المدني</a>
-        <a href="course-swot.html" class="course-button" data-aos="zoom-in">رباعية سوات في التخطيط</a>
-        <a href="course-networking.html" class="course-button" data-aos="zoom-in">أساليب التشبيك بين منظمات المجتمع المدني والسلطة المحلية</a>
-        <a href="course-roles.html" class="course-button" data-aos="zoom-in">أدوار منظمات المجتمع المدني في التنمية ومكافحة الفساد</a>
-        <a href="course-hendra.html" class="course-button" data-aos="zoom-in">الهندرة</a>
-        <a href="course-feasibility.html" class="course-button" data-aos="zoom-in">دراسة جدوى المشاريع (التسويق – الإدارة – المعرفة المالية)</a>
-        <a href="course-correspondence.html" class="course-button" data-aos="zoom-in">المراسلات التجارية (بالعربية والإنجليزية)</a>
-        <a href="#" class="course-button" data-aos="zoom-in">إدارة الحملات الاجتماعية والمؤسسات غير الربحية </a>
-        <a href="#" class="course-button" data-aos="zoom-in">القيادة المجتمعية والتأثير الاجتماعي </a>
-        <a href="#" class="course-button" data-aos="zoom-in">التخطيط الاستراتيجي باستخدام أدوات حديثة </a>
-        <a href="#" class="course-button" data-aos="zoom-in">الحوكمة ومكافحة الفساد </a>
+        <div class="course-button-container" data-aos="zoom-in"><a href="course-strategic-planning.html" class="course-button"><i class="fas fa-sitemap"></i> التخطيط الاستراتيجي</a></div>
+        <div class="course-button-container" data-aos="zoom-in"><a href="course-swot.html" class="course-button"><i class="fas fa-circle-nodes"></i> رباعية سوات</a></div>
+        <div class="course-button-container" data-aos="zoom-in"><a href="course-networking.html" class="course-button"><i class="fas fa-link"></i> أساليب التشبيك</a></div>
+        <div class="course-button-container" data-aos="zoom-in"><a href="course-roles.html" class="course-button"><i class="fas fa-building"></i> أدوار المنظمات</a></div>
+        <div class="course-button-container" data-aos="zoom-in"><a href="course-hendra.html" class="course-button"><i class="fas fa-gears"></i> الهندرة</a></div>
+        <div class="course-button-container" data-aos="zoom-in"><a href="course-feasibility.html" class="course-button"><i class="fas fa-file-invoice-dollar"></i> دراسة الجدوى</a></div>
+        <div class="course-button-container" data-aos="zoom-in"><a href="course-correspondence.html" class="course-button"><i class="fas fa-envelope"></i> المراسلات التجارية</a></div>
+        <div class="course-button-container" data-aos="zoom-in"><a href="social-campaigns.html" class="course-button"><i class="fas fa-megaphone"></i> إدارة الحملات الاجتماعية </a></div>
+        <div class="course-button-container" data-aos="zoom-in"><a href="community-leadership.html" class="course-button"><i class="fas fa-hand-holding-heart"></i> القيادة المجتمعية </a></div>
+        <div class="course-button-container" data-aos="zoom-in"><a href="Strategic-Planning.html" class="course-button"><i class="fas fa-map-marked-alt"></i> التخطيط الاستراتيجي </a></div>
+        <div class="course-button-container" data-aos="zoom-in"><a href="Government-Anti-Corruption.html" class="course-button"><i class="fas fa-scale-balanced"></i> الحوكمة ومكافحة الفساد </a></div>
     </div>
 
-    <h2 data-aos="fade-right" data-aos-delay="800">9. الدورات المالية وريادة الأعمال (جديدة بالكامل)</h2>
+    <h2 data-aos="fade-right" data-aos-delay="900">10. الدورات المالية وريادة الأعمال (جديدة بالكامل)</h2>
     <div class="course-grid">
-        <a href="#" class="course-button" data-aos="zoom-in">إدارة المشاريع الاحترافية (PMP)</a>
-        <a href="#" class="course-button" data-aos="zoom-in">المحاسبة الإدارية المتقدمة</a>
-        <a href="#" class="course-button" data-aos="zoom-in">ريادة الأعمال والابتكار</a>
-        <a href="#" class="course-button" data-aos="zoom-in">التداول والاستثمار الرقمي</a>
-        <a href="#" class="course-button" data-aos="zoom-in">دراسة جدوى المشاريع الناشئة</a>
+        <div class="course-button-container" data-aos="zoom-in"><a href="Professional-projects.html" class="course-button"><i class="fas fa-tasks"></i> المشاريع الاحترافية (PMP)</a></div>
+        <div class="course-button-container" data-aos="zoom-in"><a href="Advanced-Management-Accounting.html" class="course-button"><i class="fas fa-money-check-alt"></i> المحاسبة الإدارية المتقدمة</a></div>
+        <div class="course-button-container" data-aos="zoom-in"><a href="Entrepreneurship-Innovation.html" class="course-button"><i class="fas fa-lightbulb"></i> ريادة الأعمال والابتكار</a></div>
+        <div class="course-button-container" data-aos="zoom-in"><a href="Trading-investment.html" class="course-button"><i class="fas fa-chart-line"></i> التداول والاستثمار الرقمي</a></div>
+        <div class="course-button-container" data-aos="zoom-in"><a href="Startup-Feasibility-Study.html" class="course-button"><i class="fas fa-chart-pie"></i> دراسة جدوى المشاريع الناشئة</a></div>
     </div>
 
-    <h2 data-aos="fade-right" data-aos-delay="900">ملاحظة:</h2>
-    <p style="text-align: center; color: #555;" data-aos="fade-up" data-aos-delay="950">
+    <p style="text-align: center; color: #555; margin-top: 30px;" data-aos="fade-up" data-aos-delay="950">
         للاطلاع على تفاصيل كل دورة، يرجى الضغط على الزر الخاص بها.
     </p>
+</div>
+
+<div class="fixed-whatsapp">
+    <a href="https://wa.me/967771901320" target="_blank"><i class="fab fa-whatsapp"></i></a>
 </div>
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -240,6 +364,42 @@ h2 {
         easing: "ease-in-out",
         once: true,
         mirror: false
+    });
+
+    // Search functionality
+    document.getElementById('search-bar').addEventListener('input', function() {
+        const query = this.value.trim().toLowerCase();
+        const courseButtons = document.querySelectorAll('.course-button-container');
+        
+        courseButtons.forEach(button => {
+            const buttonText = button.textContent.toLowerCase();
+            if (buttonText.includes(query) || query === '') {
+                button.style.display = 'block';
+            } else {
+                button.style.display = 'none';
+            }
+        });
+    });
+
+    // Filter functionality
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const filter = this.dataset.filter;
+            const parent = this.closest('.container');
+            const courseContainers = parent.querySelectorAll('#diplomas-grid .course-button-container');
+
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+
+            courseContainers.forEach(container => {
+                const category = container.dataset.category;
+                if (filter === 'all' || category.includes(filter)) {
+                    container.style.display = 'block';
+                } else {
+                    container.style.display = 'none';
+                }
+            });
+        });
     });
 </script>
 </body>
