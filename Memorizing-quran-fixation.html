@@ -345,18 +345,27 @@
   const form = document.forms['form'];
   const submitButton = form.querySelector('button[type="submit"]');
   const contactModal = document.getElementById('contactModal');
+  let formDataStored = {}; // Variable to store form data
 
   function submitForm(e){
     e.preventDefault();
+    
+    // Create FormData object to collect data before processing
+    const formData = new FormData(form);
 
     // Remove spaces from phone number input
     const phoneInput = form.querySelector('input[name="phone"]');
-    phoneInput.value = phoneInput.value.replace(/\s/g, '');
+    formData.set('phone', phoneInput.value.replace(/\s/g, ''));
+
+    // Store form data in the global variable before resetting the form
+    for (let [key, value] of formData.entries()) {
+        formDataStored[key] = value;
+    }
 
     submitButton.disabled = true;
     submitButton.textContent = 'جاري الإرسال...';
     
-    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+    fetch(scriptURL, { method: 'POST', body: formData})
       .then(response => {
         // Show contact options after successful submission
         showContactOptions();
@@ -373,29 +382,22 @@
     form.reset();
   }
 
-  function generateWhatsAppMessage() {
-    const formData = new FormData(form);
-    const name = formData.get('name');
-    const gender = formData.get('gender');
-    const age = formData.get('age');
-    const country = formData.get('country');
-    const phone = formData.get('phone');
-    const telegram = formData.get('Telegram');
+  function generateWhatsAppMessage(data) {
     const course = document.title.replace(' - مؤسسة كن أنت', '').trim();
 
     return `السلام عليكم، تم التسجيل في دورة "${course}".
-الاسم: ${name}
-الجنس: ${gender}
-العمر: ${age}
-البلد: ${country}
-رقم الهاتف: ${phone}
-رابط التيليجرام: ${telegram}
+الاسم: ${data.name}
+الجنس: ${data.gender}
+العمر: ${data.age}
+البلد: ${data.country}
+رقم الهاتف: ${data.phone}
+رابط التيليجرام: ${data.Telegram}
 أرجو إتمام التسجيل في الدورة.`;
   }
 
   // Generate pre-filled WhatsApp message for normal WhatsApp
   document.getElementById('whatsapp-btn').addEventListener('click', () => {
-    const message = generateWhatsAppMessage();
+    const message = generateWhatsAppMessage(formDataStored);
     const encodedMessage = encodeURIComponent(message);
     const whatsappLink = `https://wa.me/967778185189?text=${encodedMessage}`;
     window.open(whatsappLink, '_blank');
@@ -403,9 +405,9 @@
 
   // Generate pre-filled WhatsApp message for WhatsApp Business
   document.getElementById('whatsapp-business-btn').addEventListener('click', () => {
-    const message = generateWhatsAppMessage();
+    const message = generateWhatsAppMessage(formDataStored);
     const encodedMessage = encodeURIComponent(message);
-    const whatsappLink = `https://wa.me/967778185189?text=${encodedMessage}`; // The link is the same for both apps
+    const whatsappLink = `https://wa.me/967778185189?text=${encodedMessage}`;
     window.open(whatsappLink, '_blank');
   });
   
