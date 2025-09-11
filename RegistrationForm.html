@@ -211,7 +211,11 @@
     <h2>سجل الآن</h2>
     <form id="form" onsubmit="submitForm(event)">
       <input type="text" name="name" placeholder="الاسم الثلاثي" required>
-      <input type="text" name="gender" placeholder="الجنس" required>
+      <select name="gender" required>
+        <option value="" disabled selected>الجنس</option>
+        <option value="ذكر">ذكر</option>
+        <option value="أنثى">أنثى</option>
+      </select>
       <input type="number" name="age" placeholder="العمر" required>
       <input type="text" name="country" placeholder="البلد" required>
       <input type="tel" name="phone" placeholder="رقم الهاتف" required>
