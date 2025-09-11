@@ -153,6 +153,7 @@
     animation: fadeIn 0.3s ease-out;
   }
   .modal-content h3 { color: #040430; margin-bottom: 20px; font-size: 22px; }
+  .modal-content p { margin-bottom: 25px; font-size: 16px; }
   .modal-btn {
     display: block;
     width: 90%;
@@ -173,8 +174,8 @@
   .modal-btn i { margin-left: 10px; font-size: 20px; }
   .modal-whatsapp { background-color: #25D366; }
   .modal-whatsapp:hover { background-color: #1DA851; }
-  .modal-messenger { background-color: #0078FF; }
-  .modal-messenger:hover { background-color: #0063CC; }
+  .modal-whatsapp-business { background-color: #075E54; }
+  .modal-whatsapp-business:hover { background-color: #044b41; }
 
   @keyframes fadeIn {
     from { opacity: 0; transform: translateY(-20px); }
@@ -288,9 +289,9 @@
 <div class="modal-overlay" id="contactModal">
   <div class="modal-content">
     <h3>تم التسجيل بنجاح!</h3>
-    <p>تواصل معنا لإتمام التسجيل في الدورة:</p>
+    <p>تواصل معنا لإتمام التسجيل في الدورة عبر:</p>
     <a href="#" class="modal-btn modal-whatsapp" id="whatsapp-btn"><i class="fab fa-whatsapp"></i>واتساب</a>
-    <a href="#" class="modal-btn modal-messenger" id="messenger-btn"><i class="fab fa-facebook-messenger"></i>ماسنجر</a>
+    <a href="#" class="modal-btn modal-whatsapp-business" id="whatsapp-business-btn"><i class="fab fa-whatsapp"></i>واتساب أعمال</a>
   </div>
 </div>
 
@@ -372,8 +373,7 @@
     form.reset();
   }
 
-  // Generate pre-filled WhatsApp message
-  document.getElementById('whatsapp-btn').addEventListener('click', () => {
+  function generateWhatsAppMessage() {
     const formData = new FormData(form);
     const name = formData.get('name');
     const gender = formData.get('gender');
@@ -383,7 +383,7 @@
     const telegram = formData.get('Telegram');
     const course = document.title.replace(' - مؤسسة كن أنت', '').trim();
 
-    const message = `السلام عليكم، تم التسجيل في دورة "${course}".
+    return `السلام عليكم، تم التسجيل في دورة "${course}".
 الاسم: ${name}
 الجنس: ${gender}
 العمر: ${age}
@@ -391,16 +391,22 @@
 رقم الهاتف: ${phone}
 رابط التيليجرام: ${telegram}
 أرجو إتمام التسجيل في الدورة.`;
+  }
 
+  // Generate pre-filled WhatsApp message for normal WhatsApp
+  document.getElementById('whatsapp-btn').addEventListener('click', () => {
+    const message = generateWhatsAppMessage();
     const encodedMessage = encodeURIComponent(message);
     const whatsappLink = `https://wa.me/967778185189?text=${encodedMessage}`;
     window.open(whatsappLink, '_blank');
   });
 
-  // Messenger link
-  document.getElementById('messenger-btn').addEventListener('click', () => {
-    const messengerLink = `https://m.me/your_messenger_username`; // Replace with your Messenger username
-    window.open(messengerLink, '_blank');
+  // Generate pre-filled WhatsApp message for WhatsApp Business
+  document.getElementById('whatsapp-business-btn').addEventListener('click', () => {
+    const message = generateWhatsAppMessage();
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappLink = `https://wa.me/967778185189?text=${encodedMessage}`; // The link is the same for both apps
+    window.open(whatsappLink, '_blank');
   });
   
 // تعبئة حقل اسم الدورة المخفي من عنوان الصفحة
