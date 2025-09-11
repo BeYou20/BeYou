@@ -207,9 +207,7 @@
     </p>
   </div>
 
-
-
-<div id="registrationForm" data-aos="fade-up">
+  <div id="registrationForm" data-aos="fade-up">
     <h2>سجل الآن</h2>
     <form id="form" onsubmit="submitForm(event)">
       <input type="text" name="name" placeholder="الاسم الثلاثي" required>
@@ -223,9 +221,6 @@
       <button type="submit">إرسال البيانات</button>
     </form>
   </div>
-
-
-
 
 </div>
 
@@ -281,17 +276,25 @@
   updateDots();
 
 // Form submission to Google Sheets
-  const scriptURL = 'https://script.google.com/macros/s/AKfycbyiaSDaP-7Y-d2cVWYwzvyLHvh4LEDsCpjyXK1jrPQdkNdHpwFobErevem8b1BVYZdL3w/exec';
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbztWgyn56xZxcgj3S9TVLnR47CfEFluzCX8q-VDL3THa-NCZCBsyEm9Hk2UyjyV39DMuw/exec';
   const form = document.forms['form'];
+  const submitButton = form.querySelector('button[type="submit"]');
 
   function submitForm(e){
     e.preventDefault();
+    submitButton.disabled = true;
+    submitButton.textContent = 'جاري الإرسال...';
+    
     fetch(scriptURL, { method: 'POST', body: new FormData(form)})
       .then(response => {
         alert('تم إرسال بياناتك بنجاح! شكراً لتسجيلك.');
         form.reset();
       })
-      .catch(error => alert('حدث خطأ أثناء الإرسال. حاول مرة أخرى.'));
+      .catch(error => alert('حدث خطأ أثناء الإرسال. حاول مرة أخرى.'))
+      .finally(() => {
+        submitButton.disabled = false;
+        submitButton.textContent = 'إرسال البيانات';
+      });
   }
   
 // تعبئة حقل اسم الدورة المخفي من عنوان الصفحة
