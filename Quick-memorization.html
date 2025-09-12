@@ -14,14 +14,18 @@
 </script>
 
 <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
-
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
 
 <style>
-  * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Cairo', sans-serif; }
-  body { background-color: #fdfcf7; color: #040430; line-height: 1.6; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background-color: #fdfcf7;
+    color: #040430;
+    line-height: 1.6;
+    font-family: 'Tajawal', sans-serif;
+    font-weight: 400; /* Regular */
+  }
 
   header {
     background: linear-gradient(90deg, #36a506, #99f612);
@@ -35,7 +39,7 @@
     box-shadow: 0 2px 8px rgba(0,0,0,0.2);
   }
   header h1 { font-size: 22px; font-weight:700; }
-  nav a { color: #fff; text-decoration: none; margin-left: 12px; font-weight:600; transition:0.3s; }
+  nav a { color: #fff; text-decoration: none; margin-left: 12px; font-weight:700; transition:0.3s; }
   nav a:hover { color: #fef9f0; text-decoration: underline; }
 
   .hero {
@@ -51,12 +55,12 @@
     padding: 20px 25px;
     border-radius: 12px;
     color: #fffed0;
-    font-weight:600;
+    font-weight: 700;
     max-width: 95%;
     box-shadow: 0 4px 15px rgba(0,0,0,0.3);
   }
-  .hero-text h2 { font-size:28px; margin-bottom:10px; color:#ffdd57; }
-  .hero-text p { font-size:16px; }
+  .hero-text h2 { font-size:28px; margin-bottom:10px; color:#ffdd57; font-weight: 900; }
+  .hero-text p { font-size:16px; font-weight: 400; }
 
   .marquee {
     width: 100%;
@@ -65,7 +69,7 @@
     overflow: hidden;
     white-space: nowrap;
     padding: 10px 0;
-    font-weight: bold;
+    font-weight: 700;
     font-size:14px;
   }
   .marquee span {
@@ -80,11 +84,11 @@
 
   .container { width:95%; max-width:750px; margin:20px auto; background:#fff; padding:25px 20px; border-radius:15px; box-shadow: 0 6px 20px rgba(0,0,0,0.1); }
 
-  h2 { color: #36a506; margin:25px 0 15px; border-bottom: 3px solid #99f612; padding-bottom:6px; font-size:20px; }
-  p { margin-bottom:15px; font-size:15px; }
+  h2 { color: #36a506; margin:25px 0 15px; border-bottom: 3px solid #99f612; padding-bottom:6px; font-size:20px; font-weight: 800; }
+  p { margin-bottom:15px; font-size:15px; font-weight: 400; }
 
   ul { list-style:none; padding-left:0; }
-  li { margin-bottom:12px; display:flex; align-items:flex-start; font-size:15px; }
+  li { margin-bottom:12px; display:flex; align-items:flex-start; font-size:15px; font-weight: 500; }
   li i { font-size:18px; color:#ffdd57; margin-left:10px; flex-shrink:0; }
 
   .btn {
@@ -106,15 +110,15 @@
   .btn-register:hover { background: #e6c83b; }
 
   .slider-container { position: relative; overflow: hidden; margin-top: 20px; border-radius:12px; }
-  .testimonial { display:none; padding:15px; background:#fdf6e3; border-radius:12px; font-style: italic; box-shadow:0 3px 12px rgba(0,0,0,0.1); }
+  .testimonial { display:none; padding:15px; background:#fdf6e3; border-radius:12px; font-style: italic; box-shadow:0 3px 12px rgba(0,0,0,0.1); font-weight: 300; }
   .testimonial.active { display:block; }
   .slider-dots { text-align:center; margin-top:10px; }
   .dot { display:inline-block; width:10px; height:10px; margin:0 5px; background:#ccc; border-radius:50%; cursor:pointer; transition:0.3s; }
   .dot.active { background:#36a506; }
 
   .faq-item { margin-bottom:12px; }
-  .faq-question { background:#f0f0f0; padding:14px; border-radius:8px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-size:15px; font-weight:600; box-shadow:0 2px 8px rgba(0,0,0,0.05); }
-  .faq-answer { background:#fafafa; padding:14px; border-radius:8px; margin-top:6px; display:none; font-size:15px; line-height:1.5; box-shadow:0 2px 8px rgba(0,0,0,0.05); }
+  .faq-question { background:#f0f0f0; padding:14px; border-radius:8px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-size:15px; font-weight:700; box-shadow:0 2px 8px rgba(0,0,0,0.05); }
+  .faq-answer { background:#fafafa; padding:14px; border-radius:8px; margin-top:6px; display:none; font-size:15px; line-height:1.5; font-weight:400; box-shadow:0 2px 8px rgba(0,0,0,0.05); }
   .faq-question i { transition: transform 0.3s ease; }
   .faq-question.active i { transform: rotate(180deg); }
 
@@ -123,13 +127,13 @@
   /* نموذج التسجيل */
   #registrationForm { background:#e9f8df; padding:20px; border-radius:15px; border:2px solid #ffdd57; box-shadow:0 4px 15px rgba(0,0,0,0.1); margin-top:25px; }
   #registrationForm h2 { margin-bottom:15px; color:#36a506; }
-  #registrationForm input, #registrationForm select { width:100%; padding:10px; margin-bottom:12px; border-radius:8px; border:1px solid #ccc; font-size:15px; }
+  #registrationForm input, #registrationForm select { width:100%; padding:10px; margin-bottom:12px; border-radius:8px; border:1px solid #ccc; font-size:15px; font-weight: 400; }
   #registrationForm button { background:#36a506; color:#fff; font-weight:700; font-size:16px; width:100%; padding:12px; border:none; border-radius:10px; cursor:pointer; transition:0.3s; box-shadow:0 3px 12px rgba(0,0,0,0.2); }
   #registrationForm button:hover { background:#99f612; color:#040430; }
 
   .sticky-register-btn { position: fixed; bottom:15px; right:15px; z-index:1000; display:none; padding:12px 22px; font-size:15px; border-radius:10px; font-weight:700; box-shadow:0 4px 15px rgba(0,0,0,0.2); }
 
-  /* New CSS for the Modal */
+  /* New Modal for Contact Options */
   .modal-overlay {
     position: fixed;
     top: 0;
@@ -196,8 +200,8 @@
 
 <div class="hero" data-aos="fade-up">
   <div class="hero-text">
-    <h2>دورة "الحفظ السريع للقرآن الكريم – تقنيات عقلية ومهارات متقدمة"</h2>
-    <p>هل ترغب في تسريع قدرتك على حفظ القرآن الكريم بإتقان وبأحدث أساليب التدريب العقلي؟<br>انضم إلى دورة عملية ومكثفة تساعدك على اكتساب مهارات الحفظ السريع والتثبيت الفعّال للآيات والسور.</p>
+    <h2>🌟 دورة "الحفظ السريع للقرآن الكريم – تثبيت وحفظ بإتقان" 🌟</h2>
+    <p>هل ترغب في حفظ القرآن الكريم بسرعة وثبات، مع تثبيت آياته في ذهنك بفاعلية؟<br>انضم إلى دورة متخصصة في الحفظ السريع للقرآن، حيث تركز على أساليب وتقنيات حديثة تساعدك على الحفظ بشكل يومي ومنظم.</p>
   </div>
 </div>
 
@@ -209,67 +213,69 @@
     <iframe width="100%" height="250" src="https://www.youtube.com/embed/H0E9mH641qM" frameborder="0" allowfullscreen style="border-radius:8px;"></iframe>
   </div>
 
-  <h2>نبذة عن الدورة</h2>
-  <p>تركز الدورة على تقنيات الحفظ العقلي وأساليب التكرار الفعّال، مع تدريبات عملية تساعد المتدرب على زيادة سرعة الحفظ، وتقليل النسيان، وتحقيق التثبيت العميق للآيات.</p>
+  <h2>📖 نبذة عن الدورة</h2>
+  <p>تهدف هذه الدورة إلى تعليم طرق الحفظ السريع للقرآن الكريم، مع التركيز على التكرار المنظم، التثبيت الذهني، واستراتيجيات الحفظ اليومية، لتتمكن من الحفظ دون نسيان مع تقدم مستمر.</p>
 
-  <h2>أهداف الدورة</h2>
+  <h2>🎯 أهداف الدورة</h2>
   <ul data-aos="fade-right">
-    <li><i class="fas fa-brain"></i> تعلّم أساليب الحفظ العقلي الحديثة.</li>
-    <li><i class="fas fa-tachometer-alt"></i> تسريع القدرة على الحفظ مع التثبيت طويل المدى.</li>
-    <li><i class="fas fa-sync-alt"></i> تقليل النسيان باستخدام استراتيجيات مراجعة ذكية.</li>
-    <li><i class="fas fa-clipboard-check"></i> بناء خطة يومية عملية للحفظ المنتظم.</li>
-    <li><i class="fas fa-trophy"></i> تعزيز الثقة والقدرة على إنجاز الحفظ الكامل.</li>
+    <li><i class="fas fa-bolt"></i> إتقان الحفظ السريع للآيات القرآنية.</li>
+    <li><i class="fas fa-thumbtack"></i> تثبيت الحفظ باستخدام أساليب علمية ومنهجية.</li>
+    <li><i class="fas fa-bullseye"></i> تحسين التركيز والقدرة على المراجعة اليومية.</li>
+    <li><i class="fas fa-check-circle"></i> تعزيز الثقة في الحفظ والاستعداد للاختبارات القرآنية.</li>
+    <li><i class="fas fa-chart-line"></i> تطوير عادة الحفظ المستمرة مع التدرج في الكمية والوقت.</li>
   </ul>
 
-  <h2>المحاور الأساسية</h2>
+  <h2>📌 المحاور الأساسية</h2>
   <ul data-aos="fade-right">
-    <li><i class="fas fa-cogs"></i> تقنيات العقل في الحفظ السريع.</li>
-    <li><i class="fas fa-redo"></i> استراتيجيات التكرار الذكي والمراجعة الفعّالة.</li>
-    <li><i class="fas fa-eye"></i> أساليب التركيز والانتباه أثناء الحفظ.</li>
-    <li><i class="fas fa-dumbbell"></i> تدريبات عملية على سور مختارة.</li>
-    <li><i class="fas fa-tasks"></i> وضع خطة شخصية للحفظ المستمر.</li>
+    <li><i class="fas fa-sitemap"></i> مدخل إلى طرق الحفظ السريع وأساليبه.</li>
+    <li><i class="fas fa-calendar-alt"></i> تنظيم جدول الحفظ اليومي والاسبوعي.</li>
+    <li><i class="fas fa-sync-alt"></i> أساليب التكرار والتثبيت الذهني.</li>
+    <li><i class="fas fa-head-side-brain"></i> تقنيات التركيز والانتباه أثناء الحفظ.</li>
+    <li><i class="fas fa-book-reader"></i> مراجعة دورية للآيات السابقة.</li>
+    <li><i class="fas fa-tasks"></i> تدريبات عملية على سور مختارة.</li>
   </ul>
 
-  <h2>آراء المتدربين</h2>
+  <h2>💬 آراء المتدربين</h2>
   <div class="slider-container" data-aos="fade-up">
-    <div class="testimonial active">"كنت أحفظ ببطء شديد، والآن أتمكن من حفظ صفحات يوميًا." – أحمد</div>
-    <div class="testimonial">"الدورة علمتني طرق مراجعة فعّالة قللت من نسياني." – سلمى</div>
-    <div class="testimonial">"أصبحت أكثر التزامًا بخطتي اليومية للحفظ." – رائد</div>
-    <div class="testimonial">"التمارين العقلية جعلت الحفظ ممتعًا وسريعًا." – نورة</div>
-    <div class="testimonial">"أنجزت ما لم أستطع تحقيقه منذ سنوات." – عبدالله</div>
-    <div class="testimonial">"زاد يقيني أن الحفظ السريع ممكن للجميع." – حنان</div>
+    <div class="testimonial active">"أصبحت أحفظ القرآن بسرعة دون نسيان." – سلمى</div>
+    <div class="testimonial">"تعلمت كيفية تقسيم الحفظ ومتابعته يوميًا." – محمد</div>
+    <div class="testimonial">"الدورة ساعدتني على تثبيت الحفظ بسهولة." – فاطمة</div>
+    <div class="testimonial">"زاد حبي للقرآن مع التقدم الملحوظ في الحفظ." – علي</div>
+    <div class="testimonial">"التقنيات العملية جعلت الحفظ ممتعًا ومنظمًا." – يارا</div>
+    <div class="testimonial">"شعرت بالثقة في مراجعة كل ما حفظته." – حسين</div>
     <div class="slider-dots"></div>
   </div>
 
-  <h2>الأسئلة الشائعة</h2>
+  <h2>❓ الأسئلة الشائعة</h2>
   <div class="faq-container" data-aos="fade-up">
     <div class="faq-item">
       <div class="faq-question">ما هي مدة الدورة؟ <i class="fas fa-chevron-down"></i></div>
-      <div class="faq-answer">شهر واحد، بمعدل ساعة يوميًا، خمسة أيام في الأسبوع.</div>
+      <div class="faq-answer">المدة حسب إنجاز المتدرب، بمعدل ساعة يوميًا، خمسة أيام في الأسبوع.</div>
     </div>
     <div class="faq-item">
-      <div class="faq-question">هل الدورة مناسبة لجميع الأعمار؟ <i class="fas fa-chevron-down"></i></div>
-      <div class="faq-answer">نعم، الدورة مصممة لتناسب مختلف المراحل العمرية.</div>
+      <div class="faq-question">هل الدورة مناسبة لجميع المستويات؟ <i class="fas fa-chevron-down"></i></div>
+      <div class="faq-answer">نعم، الدورة تناسب المبتدئين والراغبين في تسريع الحفظ.</div>
     </div>
     <div class="faq-item">
-      <div class="faq-question">هل هناك متابعة للتثبيت؟ <i class="fas fa-chevron-down"></i></div>
-      <div class="faq-answer">نعم، يتم تطبيق استراتيجيات مراجعة عملية بشكل مستمر.</div>
+      <div class="faq-question">هل يوجد متابعة عملية؟ <i class="fas fa-chevron-down"></i></div>
+      <div class="faq-answer">نعم، هناك متابعة مستمرة وتدريبات عملية على الآيات لحفظ أكثر فعالية.</div>
     </div>
   </div>
 
-  <h2>إنجازك بعد الدورة</h2>
+  <h2>🏆 إنجازك بعد الدورة</h2>
   <div class="certificate-section" data-aos="zoom-in">
     <img src="https://www.raed.net/img?id=1423588" alt="نموذج شهادة الدورة">
     <p style="margin-top:10px; font-weight:bold; color:#36a506;">
-      اكتساب مهارات الحفظ السريع للقرآن الكريم.<br>
-      امتلاك خطة مراجعة ذكية تقلل النسيان.<br>
-      حفظ سور وصفحات في وقت قياسي.<br>
-      شهادة معتمدة تثبت تميزك في الحفظ السريع.
+      حفظ القرآن الكريم بسرعة وثبات.<br>
+      القدرة على مراجعة وتثبيت الحفظ بسهولة.<br>
+      اكتساب مهارات تنظيم الوقت وتقسيم الحفظ.<br>
+      زيادة التركيز والانتباه أثناء الحفظ.<br>
+      شهادة معتمدة تثبت اجتياز الدورة وإتقان أسلوب الحفظ السريع.
     </p>
   </div>
 
   <div id="registrationForm" data-aos="fade-up">
-    <h2>سجل الآن</h2>
+    <h2>💡 ابدأ الآن رحلتك نحو حفظ القرآن الكريم بإتقان!</h2>
     <form id="form" onsubmit="submitForm(event)">
       <input type="text" name="name" placeholder="الاسم الثلاثي" required>
       <select name="gender" required>
