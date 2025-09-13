@@ -9,6 +9,16 @@ app.use(express.static("public")); // استضافة ملفات HTML وJS
 // قراءة مفتاح API من متغير البيئة
 const DEEPSEEK_API_KEY = process.env.DEEPSEEK_API_KEY;
 
+// مسار Health Check
+app.get("/health", (req, res) => {
+    res.send("OK");
+});
+
+// فتح الصفحة الرئيسية للشات مباشرة عند /
+app.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname, "public", "kn_anta_bot.html"));
+});
+
 app.post("/api/chat", async (req, res) => {
     const userMessage = req.body.message || "";
 
