@@ -16,7 +16,7 @@ app.use(express.static(__dirname));
 
 // صفحة البداية عند "/"
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "kn_anta_bot.html"));
+  res.sendFile(path.resolve(__dirname, "kn_anta_bot.html"));
 });
 
 // API لاستدعاء Hugging Face
