@@ -4,7 +4,7 @@ const path = require("path");
 
 const app = express();
 app.use(express.json());
-app.use(express.static("public")); // استضافة ملفات HTML وJS
+app.use(express.static(__dirname)); // يخدم أي ملف موجود في جذر المشروع
 
 // قراءة مفتاح API من متغير البيئة
 const DEEPSEEK_API_KEY = process.env.DEEPSEEK_API_KEY;
@@ -16,7 +16,7 @@ app.get("/health", (req, res) => {
 
 // فتح الصفحة الرئيسية للشات مباشرة عند /
 app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "public", "kn_anta_bot.html"));
+    res.sendFile(path.join(__dirname, "kn_anta_bot.html"));
 });
 
 app.post("/api/chat", async (req, res) => {
