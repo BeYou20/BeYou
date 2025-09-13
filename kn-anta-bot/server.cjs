@@ -4,20 +4,10 @@ const path = require("path");
 
 const app = express();
 app.use(express.json());
-app.use(express.static(__dirname)); // يخدم أي ملف موجود في جذر المشروع
+app.use(express.static(path.join(__dirname, "public"))); // استضافة ملفات HTML وJS
 
 // قراءة مفتاح API من متغير البيئة
 const DEEPSEEK_API_KEY = process.env.DEEPSEEK_API_KEY;
-
-// مسار Health Check
-app.get("/health", (req, res) => {
-    res.send("OK");
-});
-
-// فتح الصفحة الرئيسية للشات مباشرة عند /
-app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "kn_anta_bot.html"));
-});
 
 app.post("/api/chat", async (req, res) => {
     const userMessage = req.body.message || "";
