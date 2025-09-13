@@ -11,15 +11,27 @@ const PORT = process.env.PORT || 10000;
 app.use(cors());
 app.use(bodyParser.json());
 
-// تقديم الملفات الثابتة
-app.use(express.static(__dirname));
+// تقديم الملفات الثابتة من المجلد الجديد
+app.use(express.static(path.join(__dirname, 'public')));
 
 // صفحة البداية عند "/"
 app.get("/", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "kn_anta_bot.html"));
+  res.sendFile(path.join(__dirname, "public", "kn_anta_bot.html"));
 });
 
-// API لاستدعاء Hugging Face
+// APIs للنماذج الأخرى (تم تعطيلها)
+app.post("/ask-openai", async (req, res) => {
+  res.status(500).json({ error: "OpenAI API غير مفعل حاليًا." });
+});
+
+app.post("/ask-gemini", async (req, res) => {
+  res.status(500).json({ error: "Gemini API غير مفعل حاليًا." });
+});
+
+app.post("/ask-deepseek", async (req, res) => {
+  res.status(500).json({ error: "DeepSeek API غير مفعل حاليًا." });
+});
+
 app.post("/ask-huggingface", async (req, res) => {
   try {
     const { question } = req.body;
@@ -41,19 +53,6 @@ app.post("/ask-huggingface", async (req, res) => {
     console.error(error.response?.data || error.message);
     res.status(500).json({ error: "حدث خطأ أثناء الاتصال بـ Hugging Face API" });
   }
-});
-
-// APIs للنماذج الأخرى (تم تعطيلها)
-app.post("/ask-openai", async (req, res) => {
-  res.status(500).json({ error: "OpenAI API غير مفعل حاليًا." });
-});
-
-app.post("/ask-gemini", async (req, res) => {
-  res.status(500).json({ error: "Gemini API غير مفعل حاليًا." });
-});
-
-app.post("/ask-deepseek", async (req, res) => {
-  res.status(500).json({ error: "DeepSeek API غير مفعل حاليًا." });
 });
 
 app.listen(PORT, () => {
