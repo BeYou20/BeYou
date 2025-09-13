@@ -31,7 +31,7 @@ app.post("/ask-gemini", async (req, res) => {
       {
         headers: {
           "Content-Type": "application/json",
-          "x-goog-api-key": process.env.GEMINI_API_KEY
+          "x-goog-api-key": "AIzaSyDOPZhbw6Bb5K7lreU0rbhDLo7zXAA0IRg" // المفتاح تم وضعه هنا مباشرةً
         }
       }
     );
