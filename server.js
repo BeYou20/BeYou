@@ -31,7 +31,7 @@ app.post("/ask-gemini", async (req, res) => {
       {
         headers: {
           "Content-Type": "application/json",
-          "x-goog-api-key": process.env.GEMINI_API_KEY
+          "x-goog-api-key": "AIzaSyDOPZhbw6Bb5K7lreU0rbhDLo7zXAA0IRg" // المفتاح تم وضعه هنا مباشرةً
         }
       }
     );
@@ -58,7 +58,7 @@ app.post("/ask-deepseek", async (req, res) => {
       {
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer sk-871cfdd805b945d6b8f5160a1a9421ce` // المفتاح تم وضعه هنا مباشرةً
+          Authorization: `Bearer ${process.env.DEEPSEEK_API_KEY}`
         }
       }
     );
